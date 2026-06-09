@@ -1,12 +1,16 @@
-import express from 'express';
+import express from "express";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-console.log("Starting GeoWell Hub backend...");
+app.use(express.json());
+app.use(express.static("frontend"));
 
-app.use(0x2f, express.static("frontend"));
+// Health check endpoint to verify the API is working
+app.get("/api/health", (req, res) => {
+  res.json({ message: "GeoWell Hub API is working" });
+});
 
 app.listen(PORT, () => {
-    console.log(`GeoWell Hub backend is running on port ${PORT}`);
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
