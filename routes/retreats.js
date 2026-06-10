@@ -4,14 +4,14 @@
 import express from "express";
 
 // Import the database function that gets retreat listings
-import { getRetreats } from "../database/retreats.js";
+import { getRetreats, createRetreat } from "../database/retreats.js";
 
 // Create an Express router
 // A router lets us keep routes separate from backend.js
 const router = express.Router();
 
 
-
+// ------------------------- //
 
 // Define a route for GET requests to /api/retreats
 // This route returns all retreat listings from MongoDB
@@ -33,6 +33,26 @@ router.get("/", async (req, res) => {
       error: "Internal Server Error",
       retreats: [],
     });
+  }
+});
+
+// POST /api/retreats
+// Create a new retreat listing
+router.post("/", async (req, res) => {
+  try {
+    // Get the retreat data sent from the frontend
+    const retreatData = req.body;
+
+    // Insert the retreat into MongoDB
+    const result = await createRetreat(retreatData);
+
+    // Send success response back to the browser
+    res.status(201).json({
+      message: "Retreat created successfully",
+      insertedId: result.insertedId,
+    });
+  } catch (error) {
+    
   }
 });
 
