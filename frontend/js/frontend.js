@@ -4,6 +4,12 @@ import { fetchRetreats } from "./api/retreatsApi.js";
 // Find the listings section in index.html
 const listingsSection = document.querySelector("#listings");
 
+// Find the search input
+const searchInput = document.querySelector("#search-input");
+
+// Store all retreats so we can filter them later
+let allRetreats = [];
+
 // Display retreat listings on the page
 function displayRetreats(retreats) {
   // Clear old content before adding new content
