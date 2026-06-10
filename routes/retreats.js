@@ -9,3 +9,32 @@ import { getRetreats } from "../database/retreats.js";
 // Create an Express router
 // A router lets us keep routes separate from backend.js
 const router = express.Router();
+
+
+
+
+// Define a route for GET requests to /api/retreats
+// This route returns all retreat listings from MongoDB
+router.get("/", async (req, res) => {
+  try {
+    // Ask the database file for all retreat listings
+    const retreats = await getRetreats();
+
+    // Send the retreat listings back to the frontend as JSON
+    res.json({
+      retreats,
+    });
+  } catch (error) {
+    // Log the error in the terminal for debugging
+    console.error("Error fetching retreats:", error);
+
+    // Send a safe error response to the frontend
+    res.status(500).json({
+      error: "Internal Server Error",
+      retreats: [],
+    });
+  }
+});
+
+// Export the router so backend.js can use it
+export default router;
