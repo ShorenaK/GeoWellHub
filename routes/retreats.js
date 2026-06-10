@@ -4,7 +4,7 @@
 import express from "express";
 
 // Import the database function that gets retreat listings
-import { getRetreats, createRetreat, updateRetreat } from "../database/retreats.js";
+import { getRetreats, createRetreat, updateRetreat, deleteRetreat } from "../database/retreats.js";
 
 // Create an Express router
 // A router lets us keep routes separate from backend.js
@@ -90,6 +90,39 @@ router.put("/:id", async (req, res) => {
   } catch (error) {
     // Log the error for debugging
     console.error("Error updating retreat:", error);
+
+    // Send safe error response
+    return res.status(500).json({
+      error: "Internal Server Error",
+    });
+  }
+});
+
+// DELETE -->  /api/retreats/:id
+// Delete an existing retreat by its MongoDB _id
+router.delete("/:id", async (req, res) => {
+  try {
+    // Get the id from the URL
+    const { id } = req.params;
+
+    // Delete the retreat from MongoDB
+    const result = await deleteRetreat(id);
+
+    // If no document matched the id, return 404
+    if (result.deletedCount === 0) {
+      return res.status(404).json({
+        error: "Retreat not found",
+      });
+    }
+
+    // Send success response
+    return res.json({
+      message: "Retreat deleted successfully",
+      deletedCount: result.deletedCount,
+    });
+  } catch (error) {
+    // Log the error for debugging
+    console.error("Error deleting retreat:", error);
 
     // Send safe error response
     return res.status(500).json({
