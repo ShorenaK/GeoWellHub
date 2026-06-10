@@ -1,6 +1,9 @@
 // Import Express framework
 import express from "express";
 
+// Import the MongoDB connection function
+import { connectToDatabase } from "./database/mongo.js";
+
 // Create Express application
 const app = express();
 
@@ -22,7 +25,20 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
+// Start the application
+async function startServer() {
+  try {
+    // Connect to MongoDB first
+    await connectToDatabase();
+
+    // Start Express server
+    app.listen(PORT, () => {
+      console.log(`Server is running at http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error("Failed to start server:", error);
+  }
+}
+
+// Run the startup function
+startServer();
