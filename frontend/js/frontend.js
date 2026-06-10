@@ -42,7 +42,10 @@ async function loadRetreats() {
   // Get retreat data from backend
   const retreats = await fetchRetreats();
 
-  // Show retreat data on the page
+  // Save all retreats for searching
+  allRetreats = retreats;
+
+  // Display all retreats initially
   displayRetreats(retreats);
 }
 
