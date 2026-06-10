@@ -4,8 +4,14 @@ import express from "express";
 // Import the MongoDB connection function
 import { connectToDatabase } from "./database/mongo.js";
 
+// Import retreat routes
+import retreatRoutes from "./routes/retreats.js";
+
 // Create Express application
 const app = express();
+
+// Register retreat routes
+app.use("/api/retreats", retreatRoutes);
 
 // Port where the server will run
 const PORT = 3000;
