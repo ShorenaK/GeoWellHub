@@ -10,14 +10,17 @@ import retreatRoutes from "./routes/retreats.js";
 // Create Express application
 const app = express();
 
-// Register retreat routes
-app.use("/api/retreats", retreatRoutes);
-
 // Port where the server will run
 const PORT = 3000;
 
 // Middleware that allows Express to read JSON data
 app.use(express.json());
+ 
+
+// Register retreat routes
+app.use("/api/retreats", retreatRoutes);
+
+
 
 // Tell Express to serve files from the frontend folder
 // This allows index.html, CSS, and JS files to be loaded
