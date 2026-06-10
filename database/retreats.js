@@ -7,7 +7,7 @@ import { getDatabase } from "./mongo.js";
 // Name of the MongoDB collection we will use for retreat listings
 const COLLECTION_NAME = "retreats";
 
-// Get all retreat listings from the database--- might change this later will see 
+// Get all retreat listings from the database--- might change this later will see this is for my routes this fucntion to be used for my routs 
 export async function getRetreats() {
   try {
     // Get the connected database
