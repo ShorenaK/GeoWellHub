@@ -28,3 +28,29 @@ export async function getRetreats() {
     throw error;
   }
 }
+
+
+///////----------> POST
+
+// Create a new retreat listing in the database
+export async function createRetreat(retreatData) {
+  try {
+    // Get the connected database
+    const db = getDatabase();
+
+    // Get the retreats collection
+    const collection = db.collection(COLLECTION_NAME);
+
+    // Insert the new retreat document into MongoDB
+    const result = await collection.insertOne(retreatData);
+
+    // Return the MongoDB insert result
+    return result;
+  } catch (error) {
+    // Log the error so we can debug it in the terminal
+    console.error("Error creating retreat in database:", error);
+
+    // Throw the error so the route can handle it
+    throw error;
+  }
+}
