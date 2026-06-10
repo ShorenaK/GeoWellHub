@@ -85,3 +85,33 @@ export async function updateRetreat(id, retreatData) {
     throw error;
   }
 }
+
+
+
+///////----------> Delete
+
+// Delete an existing retreat by its MongoDB _id
+export async function deleteRetreat(id) {
+  try {
+    // Get the connected database
+    const db = getDatabase();
+
+    // Get the retreats collection
+    const collection = db.collection(COLLECTION_NAME);
+
+    // Delete one retreat where _id matches the id from the URL
+    const result = await collection.deleteOne({
+      _id: new ObjectId(id),
+    });
+
+    // Return MongoDB delete result
+    return result;
+  } catch (error) {
+    // Log error for debugging
+    console.error("Error deleting retreat:", error);
+
+    // Let the route handle the error
+    throw error;
+  }
+}
+
