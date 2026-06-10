@@ -68,9 +68,16 @@ async function loadRetreats() {
   displayRetreats(retreats);
 }
 
-// listen for user input in the search box and filter retreats as they type
+// listen for user input in the search box and filter retreats as they type -----> this is for my search bar functionality
 
+// Listen for typing inside the search input
+searchInput.addEventListener("input", (event) => {
+  // Get the current text typed by the user
+  const searchText = event.target.value;
 
+  // Filter retreats using the typed text
+  filterRetreats(searchText);
+});
 
 
 // Start the page ---> Display retreats on page
