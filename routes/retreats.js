@@ -52,7 +52,13 @@ router.post("/", async (req, res) => {
       insertedId: result.insertedId,
     });
   } catch (error) {
-    
+    // Log the error for debugging
+    console.error("Error creating retreat:", error);
+
+    // Send safe error response
+    res.status(500).json({
+      error: "Internal Server Error",
+    });
   }
 });
 
