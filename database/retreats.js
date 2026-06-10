@@ -58,3 +58,30 @@ export async function createRetreat(retreatData) {
 
 
 ///////----------> Update
+// Update an existing retreat
+export async function updateRetreat(id, retreatData) {
+  try {
+    // Get the connected database
+    const db = getDatabase();
+
+    // Get the retreats collection
+    const collection = db.collection(COLLECTION_NAME);
+
+    // Update the matching retreat
+    const result = await collection.updateOne(
+      { _id: new ObjectId(id) },
+      {
+        $set: retreatData,
+      },
+    );
+
+    // Return MongoDB result
+    return result;
+  } catch (error) {
+    // Log error for debugging
+    console.error("Error updating retreat:", error);
+
+    // Let routes handle the error
+    throw error;
+  }
+}
