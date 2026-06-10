@@ -37,6 +37,25 @@ function displayRetreats(retreats) {
   });
 }
 
+// Filter retreats based on what the user types
+function filterRetreats(searchText) {
+  // Convert search text to lowercase so search is not case-sensitive
+  const lowerCaseSearchText = searchText.toLowerCase();
+
+  // Keep only retreats that match the search text
+  const filteredRetreats = allRetreats.filter((retreat) => {
+    return (
+      retreat.name?.toLowerCase().includes(lowerCaseSearchText) ||
+      retreat.city?.toLowerCase().includes(lowerCaseSearchText) ||
+      retreat.region?.toLowerCase().includes(lowerCaseSearchText) ||
+      retreat.treatmentType?.toLowerCase().includes(lowerCaseSearchText)
+    );
+  });
+
+  // Display only the filtered retreats
+  displayRetreats(filteredRetreats);
+}
+
 // Load retreats when the page opens
 async function loadRetreats() {
   // Get retreat data from backend
@@ -48,6 +67,11 @@ async function loadRetreats() {
   // Display all retreats initially
   displayRetreats(retreats);
 }
+
+// listen for user input in the search box and filter retreats as they type
+
+
+
 
 // Start the page ---> Display retreats on page
 loadRetreats();
