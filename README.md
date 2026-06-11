@@ -33,3 +33,38 @@ http://localhost:3000/details.html?id=6a2acc82534df5761cd7fe27 --- detail page b
 
 Future Feature: 
 Add user accounts and reviews so visitors can create, update, and delete their own reviews.
+
+
+
+=== left to Do ====
+
+
+Bootstrap Cards --- not yet
+
+Navigation Bar ----- not yet
+
+
+Images ----
+
+Responsive Layout ---
+
+Hero Section  --- Real Borjomi images --- 
+
+Real Ureki images--- 
+
+Real Tskaltubo images ---
+
+Real Abastumani images ---
+
+Real Sairme images
+ Mockaroo 1000+ Records 
+ README 
+
+Screenshots 
+
+Deployment 
+
+Demo Video 
+
+Prettier/Lint 
+

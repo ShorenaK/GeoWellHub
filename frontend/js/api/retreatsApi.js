@@ -62,3 +62,47 @@ export async function fetchRetreatById(id) {
     return null;
   }
 }
+
+// Update an existing retreat through the backend API
+export async function updateRetreat(id, retreatData) {
+  try {
+    // Send PUT request to /api/retreats/:id
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(retreatData),
+    });
+
+    // Convert backend response into JavaScript object
+    const data = await response.json();
+
+    // Return backend response
+    return data;
+  } catch (error) {
+    console.error("Error updating retreat:", error);
+
+    return null;
+  }
+}
+
+// Delete an existing retreat through the backend API
+export async function deleteRetreat(id) {
+  try {
+    // Send DELETE request to /api/retreats/:id
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "DELETE",
+    });
+
+    // Convert backend response into JavaScript object
+    const data = await response.json();
+
+    // Return backend response
+    return data;
+  } catch (error) {
+    console.error("Error deleting retreat:", error);
+
+    return null;
+  }
+}
