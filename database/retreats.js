@@ -29,7 +29,31 @@ export async function getRetreats() {
     throw error;
   }
 }
+// -----------> Get one retreat listing by its MongoDB _id deteilhnls page 
+// Get one retreat listing by its MongoDB _id
+export async function getRetreatById(id) {
+  try {
+    // Get the connected database
+    const db = getDatabase();
 
+    // Get the retreats collection
+    const collection = db.collection(COLLECTION_NAME);
+
+    // Find one retreat where _id matches the id from the URL
+    const retreat = await collection.findOne({
+      _id: new ObjectId(id),
+    });
+
+    // Return the retreat document
+    return retreat;
+  } catch (error) {
+    // Log error for debugging
+    console.error("Error getting retreat by id:", error);
+
+    // Let the route handle the error
+    throw error;
+  }
+}
 
 ///////----------> POST
 

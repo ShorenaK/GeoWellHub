@@ -12,7 +12,7 @@ Sign FORM athonthications
 -- used "Thinder client" to test the routs CRUD -- beofre creteing the file and bulding --- also in the vidoe meantin the thinder 
 
 --- the Day 3 
-1. Reviews collection. ---- changed to the community listings 
+1. Reviews collection. ---- changed to the community listings  --> Build review form -- feature function 
 2. Reviews CRUD routes
 
 so far I have 2 main routs 
