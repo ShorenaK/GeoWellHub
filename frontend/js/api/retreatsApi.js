@@ -44,3 +44,21 @@ export async function createRetreat(retreatData) {
     return null;
   }
 }
+
+// Get one retreat by id from the backend
+export async function fetchRetreatById(id) {
+  try {
+    // Send GET request to /api/retreats/:id
+    const response = await fetch(`${API_URL}/${id}`);
+
+    // Convert response into JavaScript object
+    const data = await response.json();
+
+    // Return only the retreat object
+    return data.retreat;
+  } catch (error) {
+    console.error("Error fetching retreat by id:", error);
+
+    return null;
+  }
+}
