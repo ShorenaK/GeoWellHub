@@ -48,7 +48,10 @@ function filterRetreats(searchText) {
       retreat.name?.toLowerCase().includes(lowerCaseSearchText) ||
       retreat.city?.toLowerCase().includes(lowerCaseSearchText) ||
       retreat.region?.toLowerCase().includes(lowerCaseSearchText) ||
-      retreat.treatmentType?.toLowerCase().includes(lowerCaseSearchText)
+      retreat.treatmentType?.toLowerCase().includes(lowerCaseSearchText) ||
+      retreat.traditionalBenefits?.toLowerCase().includes(lowerCaseSearchText) ||
+
+
     );
   });
 
