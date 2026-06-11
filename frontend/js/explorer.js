@@ -77,11 +77,17 @@ async function loadRetreats() {
   // Get retreat data from backend
   const retreats = await fetchRetreats();
 
+// Get community listing data from backend
+  const communityListings = await fetchCommunityListings();
+
+
   // Save all retreats for searching
   allRetreats = retreats;
+  allCommunityListings = communityListings;
 
-  // Display all retreats initially
-  displayRetreats(retreats);
+
+// Display both collections together
+  displayListings(allRetreats, allCommunityListings);
 }
 
 // listen for user input in the search box and filter retreats as they type -----> this is for my search bar functionality
