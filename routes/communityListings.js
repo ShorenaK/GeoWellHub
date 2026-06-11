@@ -1,7 +1,7 @@
 // Import Express so we can create a router
 import express from "express";
 
-// Import community listing database functions
+// Import community listing database functions ---> CRUD operations
 import {
   getCommunityListings,
   createCommunityListing,
