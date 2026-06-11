@@ -28,14 +28,26 @@ retreatForm.addEventListener("submit", async (event) => {
     imageUrl: "https://placehold.co/600x400",
   };
 
-  // Send the new retreat to the backend
-  await createRetreat(retreatData);
+  if (editingRetreatId) {
+    // If editingRetreatId has a value, update the existing retreat
+    await updateRetreat(editingRetreatId, retreatData);
+
+    // Clear edit mode after updating
+    editingRetreatId = null;
+
+    alert("Retreat updated successfully!");
+  } else {
+    // If no edit id exists, create a new retreat
+    await createRetreat(retreatData);
+
+    alert("Retreat created successfully!");
+  }
 
   // Clear the form after submit
   retreatForm.reset();
 
-  // Let the user know it worked
-  alert("Retreat created successfully!");
+  // Reload the list so changes appear on the page
+  await loadManageRetreats();
 });
 
 // Display all retreats with Delete button
@@ -80,6 +92,22 @@ async function loadManageRetreats() {
 }
 // Listen for clicks on the retreat list
 manageRetreatList.addEventListener("click", async (event) => {
+  // Check if the clicked element is an edit button
+  if (event.target.classList.contains("edit-retreat-btn")) {
+    // Store the retreat id so we know which retreat to update
+    editingRetreatId = event.target.dataset.id;
+
+    // Fill the form with the current retreat values
+    document.querySelector("#retreat-name").value = event.target.dataset.name;
+    document.querySelector("#retreat-city").value = event.target.dataset.city;
+    document.querySelector("#retreat-region").value = event.target.dataset.region;
+    document.querySelector("#retreat-treatment").value =
+      event.target.dataset.treatment;
+
+    // Stop here because this was an edit click, not a delete click
+    return;
+  }
+
   // Check if the clicked element is a delete button
   if (event.target.classList.contains("delete-retreat-btn")) {
     // Get the retreat id from the button
@@ -91,8 +119,6 @@ manageRetreatList.addEventListener("click", async (event) => {
     if (!confirmDelete) {
       return;
     }
-
-    
 
     // Delete retreat from backend
     await deleteRetreat(retreatId);
