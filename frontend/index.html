@@ -13,27 +13,28 @@
 
   <body>
     <div class="container py-4">
-      <header>
+      <header class="mb-4">
         <h1>GeoWell Hub</h1>
-        <p>Discover wellness retreats in Georgia.</p>
+        <p>Discover wellness retreats, mineral waters, and healing destinations in Georgia.</p>
+
+        <nav>
+          <a href="./index.html">Home</a> |
+          <a href="./explorer.html">Explorer</a> |
+          <a href="./manage.html">Manage Listings</a>
+        </nav>
       </header>
 
       <main>
- <!-- Search box -->
-  <div class="mb-3">
-    <label for="search-input" class="form-label">Search Retreats</label>
+        <section>
+          <h2>Welcome</h2>
+          <p>
+            Use GeoWell Hub to explore wellness retreats, mineral springs,
+            thermal baths, and community-submitted wellness places across Georgia.
+          </p>
 
-    <input
-      type="text"
-      id="search-input"
-      class="form-control"
-      placeholder="Search by name, city, region, or treatment type, mineral water, etc."
-    />
-  </div>
-        
-       
-         <!-- Retreat listings will be displayed here -->
-        <section id="listings"></section>
+          <a href="./explorer.html" class="btn btn-primary">Explore Listings</a>
+          <a href="./manage.html" class="btn btn-outline-secondary">Add a Listing</a>
+        </section>
       </main>
 
       <footer class="mt-5">
@@ -41,7 +42,6 @@
       </footer>
     </div>
 
-    <script type="module" src="./js/frontend.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

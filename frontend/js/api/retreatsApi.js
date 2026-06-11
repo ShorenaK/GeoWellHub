@@ -20,3 +20,27 @@ export async function fetchRetreats() {
     return [];
   }
 }
+
+// Create a new retreat through the backend API
+export async function createRetreat(retreatData) {
+  try {
+    // Send POST request with retreat data
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(retreatData),
+    });
+
+    // Convert backend response to JavaScript object
+    const data = await response.json();
+
+    // Return the backend response
+    return data;
+  } catch (error) {
+    console.error("Error creating retreat:", error);
+
+    return null;
+  }
+}
