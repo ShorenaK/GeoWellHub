@@ -3,11 +3,12 @@ import express from "express";
 
 // Import the MongoDB connection function
 import { connectToDatabase } from "./database/mongo.js";
-// Import community listing routes
-import communityListingRoutes from "./routes/communityListings.js";
 
 // Import retreat routes
 import retreatRoutes from "./routes/retreats.js";
+
+// Import community listing routes
+import communityListingRoutes from "./routes/communityListings.js";
 
 // Create Express application
 const app = express();

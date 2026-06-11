@@ -7,3 +7,6 @@ GeoWell Hub will be a web application that helps users discover wellness retreat
 Future Feature:
 Add user accounts so visitors can create, update, and delete their own reviews.
 Sign FORM athonthications 
+
+
+-- used "Thinder client" to test the routs CRUD -- beofre creteing the file and bulding 
