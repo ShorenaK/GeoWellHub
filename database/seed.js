@@ -108,7 +108,7 @@ const communityListings = [
     region: "Samegrelo-Zemo Svaneti",
     city: "Abasha",
     listingType: "Sulfur Water Spring",
-    wellnessNeeds: ["skin", "mineral-water", "relaxation"],
+    wellnessNeeds: ["skin", "mineral-water", "kidney"],
     traditionalBenefits:
       "Traditionally believed to support skin comfort and relaxation through sulfur mineral water.",
     description:

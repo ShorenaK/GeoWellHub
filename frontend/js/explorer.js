@@ -3,7 +3,7 @@ import { fetchRetreats } from "./api/retreatsApi.js";
 
 import { fetchCommunityListings } from "./api/communityListingsApi.js";
 
-// Find the listings section in index.html
+// Find the listings section in explorer.html
 const listingsSection = document.querySelector("#listings");
 
 // Find the search input
@@ -13,42 +13,56 @@ const searchInput = document.querySelector("#search-input");
 let allRetreats = [];
 let allCommunityListings = [];
 
-// Display retreat listings on the page
-function displayRetreats(retreats) {
+// Display both official retreats and community listings
+function displayListings(retreats, communityListings) {
   // Clear old content before adding new content
   listingsSection.innerHTML = "";
 
-  // If there are no retreats, show a message
-  if (retreats.length === 0) {
-    listingsSection.innerHTML = "<p>No retreats found.</p>";
+  // If both arrays are empty, show a message
+  if (retreats.length === 0 && communityListings.length === 0) {
+    listingsSection.innerHTML = "<p>No listings found.</p>";
     return;
   }
 
-  // Create HTML for each retreat
+  // Display official retreat listings
   retreats.forEach((retreat) => {
     const retreatCard = document.createElement("article");
 
-  retreatCard.innerHTML = `
-  <h2>${retreat.name}</h2>
+    retreatCard.innerHTML = `
+      <h2>${retreat.name}</h2>
+      <p><strong>Type:</strong> Official Retreat</p>
+      <p><strong>Region:</strong> ${retreat.region}</p>
+      <p><strong>City:</strong> ${retreat.city}</p>
+      <p><strong>Treatment:</strong> ${retreat.treatmentType}</p>
+      <p><strong>Rating:</strong> ${retreat.rating}</p>
 
-  <p><strong>Region:</strong> ${retreat.region}</p>
-  <p><strong>City:</strong> ${retreat.city}</p>
-  <p><strong>Treatment:</strong> ${retreat.treatmentType}</p>
-  <p><strong>Rating:</strong> ${retreat.rating}</p>
-
-  <a
-    href="./details.html?id=${retreat._id}"
-    class="btn btn-primary"
-  >
-    View Details
-  </a>
-`;
+      <a href="./details.html?id=${retreat._id}" class="btn btn-primary">
+        View Details
+      </a>
+    `;
 
     listingsSection.appendChild(retreatCard);
   });
+
+  // Display community-submitted listings
+  communityListings.forEach((listing) => {
+    const listingCard = document.createElement("article");
+
+    listingCard.innerHTML = `
+      <h2>${listing.name}</h2>
+      <p><strong>Type:</strong> Community Listing</p>
+      <p><strong>Region:</strong> ${listing.region}</p>
+      <p><strong>City:</strong> ${listing.city}</p>
+      <p><strong>Listing Type:</strong> ${listing.listingType}</p>
+      <p><strong>Rating:</strong> ${listing.rating}</p>
+      <p><strong>Traditional Benefits:</strong> ${listing.traditionalBenefits}</p>
+    `;
+
+    listingsSection.appendChild(listingCard);
+  });
 }
 
-// Filter retreats based on what the user types
+// Filter retreats and community listings based on what the user types
 function filterRetreats(searchText) {
   // Convert search text to lowercase so search is not case-sensitive
   const lowerCaseSearchText = searchText.toLowerCase();
@@ -61,15 +75,28 @@ function filterRetreats(searchText) {
       retreat.region?.toLowerCase().includes(lowerCaseSearchText) ||
       retreat.treatmentType?.toLowerCase().includes(lowerCaseSearchText) ||
       retreat.traditionalBenefits?.toLowerCase().includes(lowerCaseSearchText) ||
-        retreat.wellnessNeeds?.some((need) =>
+      retreat.wellnessNeeds?.some((need) =>
         need.toLowerCase().includes(lowerCaseSearchText),
       )
-
     );
   });
 
-  // Display only the filtered retreats
-  displayRetreats(filteredRetreats);
+  // Keep only community listings that match the search text
+  const filteredCommunityListings = allCommunityListings.filter((listing) => {
+    return (
+      listing.name?.toLowerCase().includes(lowerCaseSearchText) ||
+      listing.city?.toLowerCase().includes(lowerCaseSearchText) ||
+      listing.region?.toLowerCase().includes(lowerCaseSearchText) ||
+      listing.listingType?.toLowerCase().includes(lowerCaseSearchText) ||
+      listing.traditionalBenefits?.toLowerCase().includes(lowerCaseSearchText) ||
+      listing.wellnessNeeds?.some((need) =>
+        need.toLowerCase().includes(lowerCaseSearchText),
+      )
+    );
+  });
+
+  // Display filtered retreats and filtered community listings
+  displayListings(filteredRetreats, filteredCommunityListings);
 }
 
 // Load retreats when the page opens
