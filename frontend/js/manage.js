@@ -1,8 +1,14 @@
 // Import API function for creating retreats
-import { createRetreat } from "./api/retreatsApi.js";
+import {
+  createRetreat,
+  fetchRetreats,
+  deleteRetreat,
+} from "./api/retreatsApi.js";
 
 // Find the retreat form in manage.html
 const retreatForm = document.querySelector("#retreat-form");
+// Section where existing retreats will be displayed
+const manageRetreatList = document.querySelector("#manage-retreat-list");
 
 // Listen for form submission
 retreatForm.addEventListener("submit", async (event) => {
@@ -28,3 +34,56 @@ retreatForm.addEventListener("submit", async (event) => {
   // Let the user know it worked
   alert("Retreat created successfully!");
 });
+
+// Display all retreats with Delete button
+function displayManageRetreats(retreats) {
+  manageRetreatList.innerHTML = "";
+
+  retreats.forEach((retreat) => {
+    const retreatCard = document.createElement("article");
+
+    retreatCard.innerHTML = `
+      <h3>${retreat.name}</h3>
+      <p>${retreat.city}, ${retreat.region}</p>
+
+      <button
+        class="btn btn-danger delete-retreat-btn"
+        data-id="${retreat._id}"
+      >
+        Delete
+      </button>
+    `;
+
+    manageRetreatList.appendChild(retreatCard);
+  });
+}
+
+// Load retreats into manage page
+async function loadManageRetreats() {
+  const retreats = await fetchRetreats();
+
+  displayManageRetreats(retreats);
+}
+// Listen for clicks on the retreat list
+manageRetreatList.addEventListener("click", async (event) => {
+  // Check if the clicked element is a delete button
+  if (event.target.classList.contains("delete-retreat-btn")) {
+    // Get the retreat id from the button
+    const retreatId = event.target.dataset.id;
+
+    // Ask user to confirm before deleting
+    const confirmDelete = confirm("Are you sure you want to delete this retreat?");
+
+    if (!confirmDelete) {
+      return;
+    }
+
+    // Delete retreat from backend
+    await deleteRetreat(retreatId);
+
+    // Reload the list after deleting
+    await loadManageRetreats();
+  }
+});
+
+loadManageRetreats();
