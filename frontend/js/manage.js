@@ -3,12 +3,15 @@ import {
   createRetreat,
   fetchRetreats,
   deleteRetreat,
+  updateRetreat,
 } from "./api/retreatsApi.js";
 
 // Find the retreat form in manage.html
 const retreatForm = document.querySelector("#retreat-form");
 // Section where existing retreats will be displayed
 const manageRetreatList = document.querySelector("#manage-retreat-list");
+// This stores the id of the retreat currently being edited
+let editingRetreatId = null;
 
 // Listen for form submission
 retreatForm.addEventListener("submit", async (event) => {
@@ -42,17 +45,28 @@ function displayManageRetreats(retreats) {
   retreats.forEach((retreat) => {
     const retreatCard = document.createElement("article");
 
-    retreatCard.innerHTML = `
-      <h3>${retreat.name}</h3>
-      <p>${retreat.city}, ${retreat.region}</p>
+   retreatCard.innerHTML = `
+  <h3>${retreat.name}</h3>
+  <p>${retreat.city}, ${retreat.region}</p>
 
-      <button
-        class="btn btn-danger delete-retreat-btn"
-        data-id="${retreat._id}"
-      >
-        Delete
-      </button>
-    `;
+  <button
+    class="btn btn-secondary edit-retreat-btn"
+    data-id="${retreat._id}"
+    data-name="${retreat.name}"
+    data-city="${retreat.city}"
+    data-region="${retreat.region}"
+    data-treatment="${retreat.treatmentType}"
+  >
+    Edit
+  </button>
+
+  <button
+    class="btn btn-danger delete-retreat-btn"
+    data-id="${retreat._id}"
+  >
+    Delete
+  </button>
+`;
 
     manageRetreatList.appendChild(retreatCard);
   });
@@ -77,6 +91,8 @@ manageRetreatList.addEventListener("click", async (event) => {
     if (!confirmDelete) {
       return;
     }
+
+    
 
     // Delete retreat from backend
     await deleteRetreat(retreatId);
