@@ -1,6 +1,8 @@
 // Import the function that gets retreats from the backend
 import { fetchRetreats } from "./api/retreatsApi.js";
 
+import { fetchCommunityListings } from "./api/communityListingsApi.js";
+
 // Find the listings section in index.html
 const listingsSection = document.querySelector("#listings");
 
@@ -9,6 +11,7 @@ const searchInput = document.querySelector("#search-input");
 
 // Store all retreats so we can filter them later
 let allRetreats = [];
+let allCommunityListings = [];
 
 // Display retreat listings on the page
 function displayRetreats(retreats) {
