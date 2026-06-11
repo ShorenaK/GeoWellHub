@@ -4,7 +4,13 @@
 import express from "express";
 
 // Import the database function that gets retreat listings
-import { getRetreats, createRetreat, updateRetreat, deleteRetreat } from "../database/retreats.js";
+import {
+  getRetreats,
+  getRetreatById,
+  createRetreat,
+  updateRetreat,
+  deleteRetreat,
+} from "../database/retreats.js";
 
 // Create an Express router
 // A router lets us keep routes separate from backend.js
@@ -32,6 +38,36 @@ router.get("/", async (req, res) => {
     res.status(500).json({
       error: "Internal Server Error",
       retreats: [],
+    });
+  }
+});
+
+// GET /api/retreats/:id
+// Return one retreat by its MongoDB _id
+router.get("/:id", async (req, res) => {
+  try {
+    // Get the id from the URL
+    const { id } = req.params;
+
+    // Ask the database for one retreat
+    const retreat = await getRetreatById(id);
+
+    // If retreat does not exist, return 404
+    if (!retreat) {
+      return res.status(404).json({
+        error: "Retreat not found",
+      });
+    }
+
+    // Send retreat back to frontend
+    return res.json({
+      retreat,
+    });
+  } catch (error) {
+    console.error("Error fetching retreat:", error);
+
+    return res.status(500).json({
+      error: "Internal Server Error",
     });
   }
 });
