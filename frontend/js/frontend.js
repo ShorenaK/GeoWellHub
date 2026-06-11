@@ -50,7 +50,9 @@ function filterRetreats(searchText) {
       retreat.region?.toLowerCase().includes(lowerCaseSearchText) ||
       retreat.treatmentType?.toLowerCase().includes(lowerCaseSearchText) ||
       retreat.traditionalBenefits?.toLowerCase().includes(lowerCaseSearchText) ||
-
+        retreat.wellnessNeeds?.some((need) =>
+        need.toLowerCase().includes(lowerCaseSearchText),
+      )
 
     );
   });
