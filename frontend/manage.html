@@ -1,0 +1,63 @@
+
+<!-- This page allows users to create and manage their listings on GeoWell Hub. Create / update / delete listings -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoWell Hub | Manage Listings</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container py-4">
+      <header class="mb-4">
+        <h1>Manage Listings</h1>
+        <p>Create and manage GeoWell Hub listings.</p>
+
+        <nav>
+          <a href="./index.html">Home</a> |
+          <a href="./explorer.html">Explorer</a> |
+          <a href="./manage.html">Manage Listings</a>
+        </nav>
+      </header>
+
+      <main>
+        <section>
+          <h2>Add New Retreat</h2>
+
+          <form id="retreat-form">
+            <div class="mb-3">
+              <label for="retreat-name" class="form-label">Retreat Name</label>
+              <input type="text" id="retreat-name" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="retreat-city" class="form-label">City</label>
+              <input type="text" id="retreat-city" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="retreat-region" class="form-label">Region</label>
+              <input type="text" id="retreat-region" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="retreat-treatment" class="form-label">Treatment Type</label>
+              <input type="text" id="retreat-treatment" class="form-control" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Retreat</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./js/manage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
