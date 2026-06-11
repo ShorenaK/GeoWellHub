@@ -20,3 +20,53 @@ export async function fetchCommunityListings() {
     return [];
   }
 }
+
+// Create a new community listing through the backend API
+export async function createCommunityListing(listingData) {
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(listingData),
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error creating community listing:", error);
+    return null;
+  }
+}
+
+// Update an existing community listing through the backend API
+export async function updateCommunityListing(id, listingData) {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(listingData),
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error updating community listing:", error);
+    return null;
+  }
+}
+
+// Delete an existing community listing through the backend API
+export async function deleteCommunityListing(id) {
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "DELETE",
+    });
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error deleting community listing:", error);
+    return null;
+  }
+}
