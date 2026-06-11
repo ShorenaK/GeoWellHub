@@ -25,13 +25,21 @@ function displayRetreats(retreats) {
   retreats.forEach((retreat) => {
     const retreatCard = document.createElement("article");
 
-    retreatCard.innerHTML = `
-      <h2>${retreat.name}</h2>
-      <p><strong>Region:</strong> ${retreat.region}</p>
-      <p><strong>City:</strong> ${retreat.city}</p>
-      <p><strong>Treatment:</strong> ${retreat.treatmentType}</p>
-      <p><strong>Rating:</strong> ${retreat.rating}</p>
-    `;
+  retreatCard.innerHTML = `
+  <h2>${retreat.name}</h2>
+
+  <p><strong>Region:</strong> ${retreat.region}</p>
+  <p><strong>City:</strong> ${retreat.city}</p>
+  <p><strong>Treatment:</strong> ${retreat.treatmentType}</p>
+  <p><strong>Rating:</strong> ${retreat.rating}</p>
+
+  <a
+    href="./details.html?id=${retreat._id}"
+    class="btn btn-primary"
+  >
+    View Details
+  </a>
+`;
 
     listingsSection.appendChild(retreatCard);
   });
