@@ -349,24 +349,34 @@ manageCommunityList.addEventListener("click", async (event) => {
     return;
   }
 
-  if (event.target.classList.contains("delete-community-btn")) {
-    const listingId = event.target.dataset.id;
 
-    const confirmDelete = confirm(
-      "Are you sure you want to delete this community listing?",
-    );
-
-    if (!confirmDelete) {
-      return;
-    }
-
-    await deleteCommunityListing(listingId);
-
-    await loadManageCommunityListings();
-  }
 });
 
+// Listen for edit form submission on community listing cards
+manageCommunityList.addEventListener("submit", async (event) => {
+  if (!event.target.classList.contains("edit-community-form")) {
+    return;
+  }
 
+  event.preventDefault();
+
+  const editForm = event.target;
+  const listingId = editForm.dataset.id;
+
+  const updatedListing = {
+    name: editForm.querySelector(".edit-community-name").value,
+    city: editForm.querySelector(".edit-community-city").value,
+    region: editForm.querySelector(".edit-community-region").value,
+    listingType: editForm.querySelector(".edit-community-type").value,
+    traditionalBenefits: editForm.querySelector(".edit-community-benefits").value,
+  };
+
+  await updateCommunityListing(listingId, updatedListing);
+
+  alert("Community listing updated successfully!");
+
+  await loadManageCommunityListings();
+});
 
 // Load retreats and community listings when manage.html opens
 loadManageRetreats();
