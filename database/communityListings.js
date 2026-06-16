@@ -32,6 +32,18 @@ export async function getCommunityListings() {
   }
 }
 
+// Get one community listing from the database by its MongoDB _id
+export async function getCommunityListingById(id) {
+  try {
+    // Get the connected database
+    const db = getDatabase();
+
+    // Get the communityListings collection
+    const collection = db.collection(COLLECTION_NAME);
+
+ 
+}
+
 // Create a new community listing in the database
 export async function createCommunityListing(listingData) {
   try {
