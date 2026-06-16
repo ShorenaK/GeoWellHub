@@ -1,4 +1,4 @@
-// Import API function for creating retreats
+// Import API functions for retreat CRUD operations
 import {
   createRetreat,
   fetchRetreats,
@@ -6,114 +6,192 @@ import {
   updateRetreat,
 } from "./api/retreatsApi.js";
 
-// Find the retreat form in manage.html
+// Find the create retreat form in manage.html
 const retreatForm = document.querySelector("#retreat-form");
-// Section where existing retreats will be displayed
-const manageRetreatList = document.querySelector("#manage-retreat-list");
-// This stores the id of the retreat currently being edited
-let editingRetreatId = null;
 
-// Listen for form submission
+// Find the section where existing retreat cards will be displayed
+const manageRetreatList = document.querySelector("#manage-retreat-list");
+
+// Listen for create form submission
 retreatForm.addEventListener("submit", async (event) => {
-  // Prevent the page from refreshing
+  // Prevent page refresh
   event.preventDefault();
 
-  // Create a retreat object from the form fields
+  // Create a retreat object from the top create form
   const retreatData = {
     name: document.querySelector("#retreat-name").value,
     city: document.querySelector("#retreat-city").value,
     region: document.querySelector("#retreat-region").value,
     treatmentType: document.querySelector("#retreat-treatment").value,
+    description: document.querySelector("#retreat-description").value,
+    traditionalBenefits: document.querySelector("#retreat-benefits").value,
+
+    // Use the user image URL, or fallback to a placeholder image
+    imageUrl:
+      document.querySelector("#retreat-image").value ||
+      "https://placehold.co/600x400",
+
+    // Convert comma-separated text into an array
+    wellnessNeeds: document
+      .querySelector("#retreat-wellness-needs")
+      .value.split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== ""),
+
     rating: 0,
-    imageUrl: "https://placehold.co/600x400",
   };
 
-  if (editingRetreatId) {
-    // If editingRetreatId has a value, update the existing retreat
-    await updateRetreat(editingRetreatId, retreatData);
+  // Send new retreat to backend
+  await createRetreat(retreatData);
 
-    // Clear edit mode after updating
-    editingRetreatId = null;
+  alert("Retreat created successfully!");
 
-    alert("Retreat updated successfully!");
-  } else {
-    // If no edit id exists, create a new retreat
-    await createRetreat(retreatData);
-
-    alert("Retreat created successfully!");
-  }
-
-  // Clear the form after submit
+  // Clear create form
   retreatForm.reset();
 
-  // Reload the list so changes appear on the page
+  // Reload existing retreat cards
   await loadManageRetreats();
 });
 
-// Display all retreats with Delete button
+// Display all retreats on the manage page
 function displayManageRetreats(retreats) {
+  // Clear old content before rendering new cards
   manageRetreatList.innerHTML = "";
 
   retreats.forEach((retreat) => {
+    // Create a card for each retreat
     const retreatCard = document.createElement("article");
+    retreatCard.classList.add("card", "mb-3", "p-3");
 
-   retreatCard.innerHTML = `
-  <h3>${retreat.name}</h3>
-  <p>${retreat.city}, ${retreat.region}</p>
+    // Add retreat information, buttons, and hidden edit form
+    retreatCard.innerHTML = `
+      <h3>${retreat.name}</h3>
+      <p>${retreat.city}, ${retreat.region}</p>
+      <p>${retreat.treatmentType || ""}</p>
 
-  <button
-    class="btn btn-secondary edit-retreat-btn"
-    data-id="${retreat._id}"
-    data-name="${retreat.name}"
-    data-city="${retreat.city}"
-    data-region="${retreat.region}"
-    data-treatment="${retreat.treatmentType}"
-  >
-    Edit
-  </button>
+      <!-- Button opens the edit form inside this card -->
+      <button class="btn btn-secondary edit-retreat-btn" data-id="${retreat._id}">
+        Edit
+      </button>
 
-  <button
-    class="btn btn-danger delete-retreat-btn"
-    data-id="${retreat._id}"
-  >
-    Delete
-  </button>
-`;
+      <!-- Button deletes this retreat -->
+      <button class="btn btn-danger delete-retreat-btn mt-2" data-id="${retreat._id}">
+        Delete
+      </button>
 
+      <!-- 
+        This form is hidden at first.
+        It only edits this specific retreat card.
+      -->
+      <form class="edit-retreat-form mt-3 d-none" data-id="${retreat._id}">
+        <div class="mb-2">
+          <label class="form-label">Retreat Name</label>
+          <input
+            class="form-control edit-name"
+            value="${retreat.name || ""}"
+            required
+          />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">City</label>
+          <input
+            class="form-control edit-city"
+            value="${retreat.city || ""}"
+            required
+          />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Region</label>
+          <input
+            class="form-control edit-region"
+            value="${retreat.region || ""}"
+            required
+          />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Treatment Type</label>
+          <input
+            class="form-control edit-treatment"
+            value="${retreat.treatmentType || ""}"
+            required
+          />
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Description</label>
+          <textarea class="form-control edit-description">${
+            retreat.description || ""
+          }</textarea>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Traditional Benefits</label>
+          <textarea class="form-control edit-benefits">${
+            retreat.traditionalBenefits || ""
+          }</textarea>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">Image URL</label>
+          <input
+            class="form-control edit-image"
+            value="${retreat.imageUrl || ""}"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+
+        <button type="button" class="btn btn-outline-secondary cancel-edit-btn">
+          Cancel
+        </button>
+      </form>
+    `;
+
+    // Add the card to the page
     manageRetreatList.appendChild(retreatCard);
   });
 }
 
-// Load retreats into manage page
+// Load retreats from backend and display them
 async function loadManageRetreats() {
   const retreats = await fetchRetreats();
 
   displayManageRetreats(retreats);
 }
-// Listen for clicks on the retreat list
+
+// Listen for clicks on Edit, Cancel, and Delete buttons
 manageRetreatList.addEventListener("click", async (event) => {
-  // Check if the clicked element is an edit button
+  // If user clicks Edit
   if (event.target.classList.contains("edit-retreat-btn")) {
-    // Store the retreat id so we know which retreat to update
-    editingRetreatId = event.target.dataset.id;
+    // Find the card that contains the clicked Edit button
+    const card = event.target.closest("article");
 
-    // Fill the form with the current retreat values
-    document.querySelector("#retreat-name").value = event.target.dataset.name;
-    document.querySelector("#retreat-city").value = event.target.dataset.city;
-    document.querySelector("#retreat-region").value = event.target.dataset.region;
-    document.querySelector("#retreat-treatment").value =
-      event.target.dataset.treatment;
+    // Find the edit form inside that same card
+    const editForm = card.querySelector(".edit-retreat-form");
 
-    // Stop here because this was an edit click, not a delete click
+    // Show the edit form
+    editForm.classList.remove("d-none");
+
     return;
   }
 
-  // Check if the clicked element is a delete button
+  // If user clicks Cancel inside edit form
+  if (event.target.classList.contains("cancel-edit-btn")) {
+    // Find the form and hide it again
+    const editForm = event.target.closest(".edit-retreat-form");
+
+    editForm.classList.add("d-none");
+
+    return;
+  }
+
+  // If user clicks Delete
   if (event.target.classList.contains("delete-retreat-btn")) {
-    // Get the retreat id from the button
     const retreatId = event.target.dataset.id;
 
-    // Ask user to confirm before deleting
     const confirmDelete = confirm("Are you sure you want to delete this retreat?");
 
     if (!confirmDelete) {
@@ -123,9 +201,50 @@ manageRetreatList.addEventListener("click", async (event) => {
     // Delete retreat from backend
     await deleteRetreat(retreatId);
 
-    // Reload the list after deleting
+    // Reload list after delete
     await loadManageRetreats();
   }
 });
 
+// Listen for edit form submission
+manageRetreatList.addEventListener("submit", async (event) => {
+  // Only handle submit events from edit forms
+  if (!event.target.classList.contains("edit-retreat-form")) {
+    return;
+  }
+
+  // Prevent page refresh
+  event.preventDefault();
+
+  // Get the form that was submitted
+  const editForm = event.target;
+
+  // Get the id of the retreat being edited
+  const retreatId = editForm.dataset.id;
+
+  // Collect updated values from this card's edit form
+  const updatedRetreat = {
+    name: editForm.querySelector(".edit-name").value,
+    city: editForm.querySelector(".edit-city").value,
+    region: editForm.querySelector(".edit-region").value,
+    treatmentType: editForm.querySelector(".edit-treatment").value,
+    description: editForm.querySelector(".edit-description").value,
+    traditionalBenefits: editForm.querySelector(".edit-benefits").value,
+
+    // Use updated image or placeholder if empty
+    imageUrl:
+      editForm.querySelector(".edit-image").value ||
+      "https://placehold.co/600x400",
+  };
+
+  // Send updated data to backend
+  await updateRetreat(retreatId, updatedRetreat);
+
+  alert("Retreat updated successfully!");
+
+  // Reload cards so updated data appears
+  await loadManageRetreats();
+});
+
+// Load retreats when manage.html opens
 loadManageRetreats();
