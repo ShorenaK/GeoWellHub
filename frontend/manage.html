@@ -91,32 +91,17 @@
   <form id="community-form">
     <div class="mb-3">
       <label for="community-name" class="form-label">Listing Name</label>
-      <input
-        type="text"
-        id="community-name"
-        class="form-control"
-        required
-      />
+      <input type="text" id="community-name" class="form-control" required />
     </div>
 
     <div class="mb-3">
       <label for="community-city" class="form-label">City</label>
-      <input
-        type="text"
-        id="community-city"
-        class="form-control"
-        required
-      />
+      <input type="text" id="community-city" class="form-control" required />
     </div>
 
     <div class="mb-3">
       <label for="community-region" class="form-label">Region</label>
-      <input
-        type="text"
-        id="community-region"
-        class="form-control"
-        required
-      />
+      <input type="text" id="community-region" class="form-control" required />
     </div>
 
     <div class="mb-3">
@@ -125,19 +110,37 @@
         type="text"
         id="community-type"
         class="form-control"
-        placeholder="Mineral Water Source, Sulfur Spring, Thermal Pool..."
         required
       />
+    </div>
+
+    <div class="mb-3">
+      <label for="community-description" class="form-label">Description</label>
+      <textarea id="community-description" class="form-control"></textarea>
     </div>
 
     <div class="mb-3">
       <label for="community-benefits" class="form-label">
         Traditional Benefits
       </label>
-      <textarea
-        id="community-benefits"
+      <textarea id="community-benefits" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="community-image" class="form-label">Image URL</label>
+      <input type="url" id="community-image" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label for="community-wellness-needs" class="form-label">
+        Wellness Needs
+      </label>
+      <input
+        type="text"
+        id="community-wellness-needs"
         class="form-control"
-      ></textarea>
+        placeholder="skin, lungs, relaxation, mineral-water"
+      />
     </div>
 
     <button type="submit" class="btn btn-primary">
