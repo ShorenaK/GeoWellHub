@@ -349,7 +349,21 @@ manageCommunityList.addEventListener("click", async (event) => {
     return;
   }
 
+  if (event.target.classList.contains("delete-community-btn")) {
+    const listingId = event.target.dataset.id;
 
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this community listing?",
+    );
+
+    if (!confirmDelete) {
+      return;
+    }
+
+    await deleteCommunityListing(listingId);
+
+    await loadManageCommunityListings();
+  }
 });
 
 // Listen for edit form submission on community listing cards
