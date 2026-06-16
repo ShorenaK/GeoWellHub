@@ -4,6 +4,7 @@ import express from "express";
 // Import community listing database functions ---> CRUD operations
 import {
   getCommunityListings,
+  getCommunityListingById,
   createCommunityListing,
   updateCommunityListing,
   deleteCommunityListing,
