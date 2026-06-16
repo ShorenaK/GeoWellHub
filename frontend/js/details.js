@@ -1,47 +1,60 @@
 // Import function that gets one retreat from the backend
 import { fetchRetreatById } from "./api/retreatsApi.js";
 
-// Find the section where retreat details will be displayed
+// Import function that gets one community listing from the backend
+import { fetchCommunityListingById } from "./api/communityListingsApi.js";
+
+// Find the section where details will be displayed
 const retreatDetailsSection = document.querySelector("#retreat-details");
 
-// Get the id from the URL
+// Get the type and id from the URL
 const params = new URLSearchParams(window.location.search);
-const retreatId = params.get("id");
+const listingType = params.get("type");
+const listingId = params.get("id");
 
-// Display one retreat on the page
-function displayRetreat(retreat) {
-  // If retreat does not exist
-  if (!retreat) {
-    retreatDetailsSection.innerHTML = "<p>Retreat not found.</p>";
+// Display one listing on the page
+function displayListing(listing, type) {
+  if (!listing) {
+    retreatDetailsSection.innerHTML = "<p>Listing not found.</p>";
     return;
   }
 
-  // Show retreat information
-  retreatDetailsSection.innerHTML = `
-    <h2>${retreat.name}</h2>
+  const treatmentOrListingType =
+    type === "community" ? listing.listingType : listing.treatmentType;
 
-    <p><strong>Region:</strong> ${retreat.region}</p>
-    <p><strong>City:</strong> ${retreat.city}</p>
-    <p><strong>Treatment:</strong> ${retreat.treatmentType}</p>
+  retreatDetailsSection.innerHTML = `
+    <h2>${listing.name}</h2>
+
+    <p><strong>Type:</strong> ${
+      type === "community" ? "Community Listing" : "Official Retreat"
+    }</p>
+
+    <p><strong>Region:</strong> ${listing.region}</p>
+    <p><strong>City:</strong> ${listing.city}</p>
+    <p><strong>Treatment / Listing Type:</strong> ${treatmentOrListingType}</p>
 
     <p><strong>Traditional Benefits:</strong></p>
-    <p>${retreat.traditionalBenefits || "Not provided"}</p>
+    <p>${listing.traditionalBenefits || "Not provided"}</p>
 
     <p><strong>Description:</strong></p>
-    <p>${retreat.description || "No description available"}</p>
+    <p>${listing.description || "No description available"}</p>
 
-    <p><strong>Rating:</strong> ${retreat.rating}</p>
+    <p><strong>Rating:</strong> ${listing.rating || "Not rated"}</p>
   `;
 }
 
-// Load retreat when page opens
-async function loadRetreat() {
-  // Get retreat from backend
-  const retreat = await fetchRetreatById(retreatId);
+// Load the correct listing based on URL type
+async function loadListing() {
+  let listing = null;
 
-  // Display retreat on the page
-  displayRetreat(retreat);
+  if (listingType === "community") {
+    listing = await fetchCommunityListingById(listingId);
+  } else {
+    listing = await fetchRetreatById(listingId);
+  }
+
+  displayListing(listing, listingType || "retreat");
 }
 
 // Start page
-loadRetreat();
+loadListing();

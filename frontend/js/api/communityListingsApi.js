@@ -70,3 +70,18 @@ export async function deleteCommunityListing(id) {
     return null;
   }
 }
+
+// Get one community listing by id from the backend
+export async function fetchCommunityListingById(id) {
+  try {
+    const response = await fetch(`/api/community-listings/${id}`);
+
+    const data = await response.json();
+
+    return data.communityListing;
+  } catch (error) {
+    console.error("Error fetching community listing by id:", error);
+
+    return null;
+  }
+}
