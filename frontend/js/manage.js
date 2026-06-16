@@ -6,6 +6,12 @@ import {
   updateRetreat,
 } from "./api/retreatsApi.js";
 
+// Import API functions for community listing 
+import {
+  fetchCommunityListings,
+  deleteCommunityListing,
+} from "./api/communityListingsApi.js";
+
 // Find the create retreat form in manage.html
 const retreatForm = document.querySelector("#retreat-form");
 
