@@ -1,6 +1,7 @@
 // Import the function that gets retreats from the backend
 import { fetchRetreats } from "./api/retreatsApi.js";
 
+// Import the function that gets community listings from the backend
 import { fetchCommunityListings } from "./api/communityListingsApi.js";
 
 // Find the listings section in explorer.html
@@ -9,22 +10,19 @@ const listingsSection = document.querySelector("#listings");
 // Find the search input
 const searchInput = document.querySelector("#search-input");
 
-// Store all retreats so we can filter them later
+// Store all retreats and community listings so we can filter them later
 let allRetreats = [];
 let allCommunityListings = [];
 
 // Display both official retreats and community listings
 function displayListings(retreats, communityListings) {
-  // Clear old content before adding new content
   listingsSection.innerHTML = "";
 
-  // If both arrays are empty, show a message
   if (retreats.length === 0 && communityListings.length === 0) {
     listingsSection.innerHTML = "<p>No listings found.</p>";
     return;
   }
 
-  // Display official retreat listings
   retreats.forEach((retreat) => {
     const retreatCard = document.createElement("article");
 
@@ -36,7 +34,7 @@ function displayListings(retreats, communityListings) {
       <p><strong>Treatment:</strong> ${retreat.treatmentType}</p>
       <p><strong>Rating:</strong> ${retreat.rating}</p>
 
-      <a href="./details.html?id=${retreat._id}" class="btn btn-primary">
+      <a href="./details.html?type=retreat&id=${retreat._id}" class="btn btn-primary">
         View Details
       </a>
     `;
@@ -44,7 +42,6 @@ function displayListings(retreats, communityListings) {
     listingsSection.appendChild(retreatCard);
   });
 
-  // Display community-submitted listings
   communityListings.forEach((listing) => {
     const listingCard = document.createElement("article");
 
@@ -56,6 +53,10 @@ function displayListings(retreats, communityListings) {
       <p><strong>Listing Type:</strong> ${listing.listingType}</p>
       <p><strong>Rating:</strong> ${listing.rating}</p>
       <p><strong>Traditional Benefits:</strong> ${listing.traditionalBenefits}</p>
+
+      <a href="./details.html?type=community&id=${listing._id}" class="btn btn-primary">
+        View Details
+      </a>
     `;
 
     listingsSection.appendChild(listingCard);
@@ -64,10 +65,8 @@ function displayListings(retreats, communityListings) {
 
 // Filter retreats and community listings based on what the user types
 function filterRetreats(searchText) {
-  // Convert search text to lowercase so search is not case-sensitive
   const lowerCaseSearchText = searchText.toLowerCase();
 
-  // Keep only retreats that match the search text
   const filteredRetreats = allRetreats.filter((retreat) => {
     return (
       retreat.name?.toLowerCase().includes(lowerCaseSearchText) ||
@@ -81,7 +80,6 @@ function filterRetreats(searchText) {
     );
   });
 
-  // Keep only community listings that match the search text
   const filteredCommunityListings = allCommunityListings.filter((listing) => {
     return (
       listing.name?.toLowerCase().includes(lowerCaseSearchText) ||
@@ -95,39 +93,26 @@ function filterRetreats(searchText) {
     );
   });
 
-  // Display filtered retreats and filtered community listings
   displayListings(filteredRetreats, filteredCommunityListings);
 }
 
-// Load retreats when the page opens
-async function loadRetreats() {
-  // Get retreat data from backend
+// Load retreats and community listings when the page opens
+async function loadListings() {
   const retreats = await fetchRetreats();
-
-// Get community listing data from backend
   const communityListings = await fetchCommunityListings();
 
-
-  // Save all retreats for searching
   allRetreats = retreats;
   allCommunityListings = communityListings;
 
-
-// Display both collections together
   displayListings(allRetreats, allCommunityListings);
 }
 
-// listen for user input in the search box and filter retreats as they type -----> this is for my search bar functionality
-
 // Listen for typing inside the search input
 searchInput.addEventListener("input", (event) => {
-  // Get the current text typed by the user
   const searchText = event.target.value;
 
-  // Filter retreats using the typed text
   filterRetreats(searchText);
 });
 
-
-// Start the page ---> Display retreats on page
-loadRetreats();
+// Start the Explorer page
+loadListings();
