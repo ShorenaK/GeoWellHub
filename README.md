@@ -11,6 +11,8 @@ Sign FORM athonthications for the owner of the establishments and for the travle
 --- challnages to mention bug is because the Edit button fills the top “Create Retreat” form.
 --- communiti listiogwas not loading also will not show on the explores listing and on the manager listiongs 
 
+--- 3 manage listiong will no show the omunity listings 
+
 
 -- used "Thinder client" to test the routs CRUD -- beofre creteing the file and bulding --- also in the vidoe meantin the thinder 
 
