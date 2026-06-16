@@ -83,7 +83,7 @@ communityForm.addEventListener("submit", async (event) => {
     traditionalBenefits: document.querySelector("#community-benefits").value,
     imageUrl:
       document.querySelector("#community-image").value ||
-      "https://placehold.co/600x400",
+      "",
     wellnessNeeds: document
       .querySelector("#community-wellness-needs")
       .value.split(",")
