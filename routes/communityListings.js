@@ -31,6 +31,23 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET /api/community-listings/:id
+// Return one community listing by its MongoDB _id
+router.get("/:id", async (req, res) => {
+  try {
+    // Get the id from the URL
+    const { id } = req.params;
+
+   
+  } catch (error) {
+    console.error("Error fetching community listing:", error);
+
+    return res.status(500).json({
+      error: "Internal Server Error",
+    });
+  }
+});
+
 // POST /api/community-listings
 // Create a new community-submitted listing
 router.post("/", async (req, res) => {
