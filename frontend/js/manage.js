@@ -10,6 +10,7 @@ import {
 import {
   fetchCommunityListings,
   deleteCommunityListing,
+  // to be used in function that listens for edit form submission on community listing cards
   updateCommunityListing,
 } from "./api/communityListingsApi.js";
 
@@ -331,6 +332,23 @@ manageRetreatList.addEventListener("submit", async (event) => {
 
 // Listen for delete clicks on community listing cards
 manageCommunityList.addEventListener("click", async (event) => {
+  if (event.target.classList.contains("edit-community-btn")) {
+    const card = event.target.closest("article");
+    const editForm = card.querySelector(".edit-community-form");
+
+    editForm.classList.remove("d-none");
+
+    return;
+  }
+
+  if (event.target.classList.contains("cancel-community-edit-btn")) {
+    const editForm = event.target.closest(".edit-community-form");
+
+    editForm.classList.add("d-none");
+
+    return;
+  }
+
   if (event.target.classList.contains("delete-community-btn")) {
     const listingId = event.target.dataset.id;
 
@@ -347,6 +365,8 @@ manageCommunityList.addEventListener("click", async (event) => {
     await loadManageCommunityListings();
   }
 });
+
+
 
 // Load retreats and community listings when manage.html opens
 loadManageRetreats();
