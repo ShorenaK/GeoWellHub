@@ -43,7 +43,7 @@ retreatForm.addEventListener("submit", async (event) => {
     // Use the user image URL, or fallback to a placeholder image
     imageUrl:
       document.querySelector("#retreat-image").value ||
-      "https://placehold.co/600x400",
+      "",
 
     // Convert comma-separated text into an array
     wellnessNeeds: document
@@ -71,8 +71,35 @@ retreatForm.addEventListener("submit", async (event) => {
 // Listen for create form submission on community listing form
 
 
+communityForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
+  const listingData = {
+    name: document.querySelector("#community-name").value,
+    city: document.querySelector("#community-city").value,
+    region: document.querySelector("#community-region").value,
+    listingType: document.querySelector("#community-type").value,
+    description: document.querySelector("#community-description").value,
+    traditionalBenefits: document.querySelector("#community-benefits").value,
+    imageUrl:
+      document.querySelector("#community-image").value ||
+      "https://placehold.co/600x400",
+    wellnessNeeds: document
+      .querySelector("#community-wellness-needs")
+      .value.split(",")
+      .map((item) => item.trim())
+      .filter((item) => item !== ""),
+    rating: 0,
+  };
 
+  await createCommunityListing(listingData);
+
+  alert("Community listing created successfully!");
+
+  communityForm.reset();
+
+  await loadManageCommunityListings();
+});
 
 
 
