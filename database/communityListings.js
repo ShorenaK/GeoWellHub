@@ -41,7 +41,20 @@ export async function getCommunityListingById(id) {
     // Get the communityListings collection
     const collection = db.collection(COLLECTION_NAME);
 
- 
+    // Find one community listing where _id matches the id from the URL
+    const communityListing = await collection.findOne({
+      _id: new ObjectId(id),
+    });
+
+    // Return the single community listing document
+    return communityListing;
+  } catch (error) {
+    // Log error for debugging
+    console.error("Error getting community listing by id:", error);
+
+    // Let the route handle the error
+    throw error;
+  }
 }
 
 // Create a new community listing in the database
