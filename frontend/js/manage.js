@@ -215,6 +215,39 @@ manageRetreatList.addEventListener("click", async (event) => {
   }
 });
 
+// Display all community listings on the manage page
+function displayManageCommunityListings(communityListings) {
+  manageCommunityList.innerHTML = "";
+
+  communityListings.forEach((listing) => {
+    const listingCard = document.createElement("article");
+    listingCard.classList.add("card", "mb-3", "p-3");
+
+    listingCard.innerHTML = `
+      <h3>${listing.name}</h3>
+      <p>${listing.city}, ${listing.region}</p>
+      <p>${listing.listingType || ""}</p>
+      <p>${listing.traditionalBenefits || ""}</p>
+
+      <button
+        class="btn btn-danger delete-community-btn"
+        data-id="${listing._id}"
+      >
+        Delete
+      </button>
+    `;
+
+    manageCommunityList.appendChild(listingCard);
+  });
+}
+
+// Load community listings from backend and display them
+async function loadManageCommunityListings() {
+  const communityListings = await fetchCommunityListings();
+
+  displayManageCommunityListings(communityListings);
+}
+
 // Listen for edit form submission
 manageRetreatList.addEventListener("submit", async (event) => {
   // Only handle submit events from edit forms
@@ -255,5 +288,26 @@ manageRetreatList.addEventListener("submit", async (event) => {
   await loadManageRetreats();
 });
 
-// Load retreats when manage.html opens
+
+// Listen for delete clicks on community listing cards
+manageCommunityList.addEventListener("click", async (event) => {
+  if (event.target.classList.contains("delete-community-btn")) {
+    const listingId = event.target.dataset.id;
+
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this community listing?",
+    );
+
+    if (!confirmDelete) {
+      return;
+    }
+
+    await deleteCommunityListing(listingId);
+
+    await loadManageCommunityListings();
+  }
+});
+
+// Load retreats and community listings when manage.html opens
 loadManageRetreats();
+loadManageCommunityListings();
