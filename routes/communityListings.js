@@ -38,7 +38,20 @@ router.get("/:id", async (req, res) => {
     // Get the id from the URL
     const { id } = req.params;
 
-   
+    // Ask the database for one community listing
+    const communityListing = await getCommunityListingById(id);
+
+    // If community listing does not exist, return 404
+    if (!communityListing) {
+      return res.status(404).json({
+        error: "Community listing not found",
+      });
+    }
+
+    // Send community listing back to frontend
+    return res.json({
+      communityListing,
+    });
   } catch (error) {
     console.error("Error fetching community listing:", error);
 
