@@ -223,19 +223,58 @@ function displayManageCommunityListings(communityListings) {
     const listingCard = document.createElement("article");
     listingCard.classList.add("card", "mb-3", "p-3");
 
-    listingCard.innerHTML = `
-      <h3>${listing.name}</h3>
-      <p>${listing.city}, ${listing.region}</p>
-      <p>${listing.listingType || ""}</p>
-      <p>${listing.traditionalBenefits || ""}</p>
+ listingCard.innerHTML = `
+  <h3>${listing.name}</h3>
+  <p>${listing.city}, ${listing.region}</p>
+  <p>${listing.listingType || ""}</p>
+  <p>${listing.traditionalBenefits || ""}</p>
 
-      <button
-        class="btn btn-danger delete-community-btn"
-        data-id="${listing._id}"
-      >
-        Delete
-      </button>
-    `;
+  <button
+    class="btn btn-secondary edit-community-btn"
+    data-id="${listing._id}"
+  >
+    Edit
+  </button>
+
+  <button
+    class="btn btn-danger delete-community-btn mt-2"
+    data-id="${listing._id}"
+  >
+    Delete
+  </button>
+
+  <form class="edit-community-form mt-3 d-none" data-id="${listing._id}">
+    <div class="mb-2">
+      <label class="form-label">Listing Name</label>
+      <input class="form-control edit-community-name" value="${listing.name || ""}" required />
+    </div>
+
+    <div class="mb-2">
+      <label class="form-label">City</label>
+      <input class="form-control edit-community-city" value="${listing.city || ""}" required />
+    </div>
+
+    <div class="mb-2">
+      <label class="form-label">Region</label>
+      <input class="form-control edit-community-region" value="${listing.region || ""}" required />
+    </div>
+
+    <div class="mb-2">
+      <label class="form-label">Listing Type</label>
+      <input class="form-control edit-community-type" value="${listing.listingType || ""}" required />
+    </div>
+
+    <div class="mb-2">
+      <label class="form-label">Traditional Benefits</label>
+      <textarea class="form-control edit-community-benefits">${listing.traditionalBenefits || ""}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+    <button type="button" class="btn btn-outline-secondary cancel-community-edit-btn">
+      Cancel
+    </button>
+  </form>
+`;
 
     manageCommunityList.appendChild(listingCard);
   });
