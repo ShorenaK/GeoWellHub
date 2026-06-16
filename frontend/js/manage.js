@@ -8,14 +8,17 @@ import {
 
 // Import API functions for community listing 
 import {
+  createCommunityListing,
   fetchCommunityListings,
   deleteCommunityListing,
-  // to be used in function that listens for edit form submission on community listing cards
   updateCommunityListing,
 } from "./api/communityListingsApi.js";
 
 // Find the create retreat form in manage.html
 const retreatForm = document.querySelector("#retreat-form");
+
+// Find the create community listing form in manage.html
+const communityForm = document.querySelector("#community-form");
 
 // Find the section where existing retreat cards will be displayed
 const manageRetreatList = document.querySelector("#manage-retreat-list");
@@ -63,6 +66,15 @@ retreatForm.addEventListener("submit", async (event) => {
   // Reload existing retreat cards
   await loadManageRetreats();
 });
+
+
+// Listen for create form submission on community listing form
+
+
+
+
+
+
 
 // Display all retreats on the manage page
 function displayManageRetreats(retreats) {
