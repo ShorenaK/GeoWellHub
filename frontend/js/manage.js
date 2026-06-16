@@ -18,6 +18,9 @@ const retreatForm = document.querySelector("#retreat-form");
 // Find the section where existing retreat cards will be displayed
 const manageRetreatList = document.querySelector("#manage-retreat-list");
 
+// Find the section where existing community listing cards will be displayed
+const manageCommunityList = document.querySelector("#manage-community-list");
+
 // Listen for create form submission
 retreatForm.addEventListener("submit", async (event) => {
   // Prevent page refresh
