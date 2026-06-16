@@ -10,6 +10,7 @@ import {
 import {
   fetchCommunityListings,
   deleteCommunityListing,
+  updateCommunityListing,
 } from "./api/communityListingsApi.js";
 
 // Find the create retreat form in manage.html
