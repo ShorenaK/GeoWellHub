@@ -38,10 +38,15 @@ http://localhost:3000/details.html?id=6a2acc82534df5761cd7fe27 --- detail page b
 
 Future Feature: 
 Add user accounts and reviews so visitors can create, update, and delete their own reviews.
+OR 
+Future Improvement:
+Separate listing creation into two user flows:
+1. Community members can submit local mineral springs and wellness places.
+2. Business retreat owners can submit official retreat, spa, hotel, or resort listings.
 
+In the future, these forms will be moved to separate pages with user accounts and authentication.
 
-
-=== left to Do ====
+=== left to Do Day 5 ====
 
 
 Bootstrap Cards --- not yet
