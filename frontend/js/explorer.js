@@ -1,3 +1,35 @@
+/*
+  explorer.js
+
+  Purpose:
+  This file controls the GeoWell Hub Explorer page.
+
+  Responsibilities:
+  - Fetch official retreat listings from the retreats collection.
+  - Fetch community wellness listings from the communityListings collection.
+  - Combine both collections and display them on the Explorer page.
+  - Create listing cards dynamically using client-side rendering.
+  - Provide links to the Details page for official retreats.
+  - Support real-time searching and filtering.
+  - Search by:
+      * Name
+      * City
+      * Region
+      * Treatment Type
+      * Listing Type
+      * Traditional Benefits
+      * Wellness Needs
+  - Update displayed results as the user types in the search box.
+
+  Data Sources:
+  - /api/retreats
+  - /api/community-listings
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 // Import the function that gets retreats from the backend
 import { fetchRetreats } from "./api/retreatsApi.js";
 
