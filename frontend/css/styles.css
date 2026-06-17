@@ -69,3 +69,27 @@ footer {
 .delete-community-btn {
   width: 100%;
 }
+
+/* Form sections */
+form {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Form inputs */
+.form-control {
+  border-radius: 10px;
+}
+
+/* Page section spacing */
+section {
+  margin-bottom: 2rem;
+}
+
+/* Page headers */
+header {
+  margin-top: 1.5rem;
+}
