@@ -137,6 +137,12 @@ h5,
   color: var(--text-dark);
 }
 
+/* Explorer buttons */
+
+.view-details-btn {
+  min-width: 140px;
+}
+
 /* ==========================================
    Cards
 ========================================== */

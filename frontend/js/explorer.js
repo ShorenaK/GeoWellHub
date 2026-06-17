@@ -67,8 +67,8 @@ function displayListings(retreats, communityListings) {
         }
 
         <div class="card-body d-flex flex-column">
-          <span class="badge text-bg-primary mb-2 align-self-start">
-            Official Retreat
+          <span class="badge official-badge mb-2 align-self-start">
+            Official Wellness Retreat
           </span>
 
           <h2 class="card-title h5">${retreat.name}</h2>
@@ -89,12 +89,14 @@ function displayListings(retreats, communityListings) {
             <strong>Rating:</strong> ${retreat.rating || "Not rated"}
           </p>
 
-          <a
-            href="./details.html?type=retreat&id=${retreat._id}"
-            class="btn btn-primary mt-auto"
-          >
-            View Details
-          </a>
+          <div class="mt-auto pt-2">
+  <a
+    href="./details.html?type=retreat&id=${retreat._id}"
+    class="btn btn-primary view-details-btn"
+  >
+    View Details
+  </a>
+</div>
         </div>
       </div>
     `;
@@ -115,8 +117,8 @@ function displayListings(retreats, communityListings) {
         }
 
         <div class="card-body d-flex flex-column">
-          <span class="badge text-bg-success mb-2 align-self-start">
-            Community Listing
+          <span class="badge community-badge mb-2 align-self-start">
+          Community Wellness Listing
           </span>
 
           <h2 class="card-title h5">${listing.name}</h2>
