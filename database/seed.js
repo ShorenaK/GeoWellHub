@@ -68,7 +68,7 @@ const retreats = [
       "A mountain wellness destination known for pine forests, clean air, and peaceful climate.",
     pricePerNight: 130,
     rating: 4.8,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/abastumani.png",
     contactEmail: "hello@abastumaniwellness.com",
   },
   {
@@ -100,7 +100,7 @@ const retreats = [
       "A mountain wellness retreat offering mineral water, forest air, and relaxation.",
     pricePerNight: 140,
     rating: 4.8,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/sairme.png",
     contactEmail: "hello@sairmeretreat.com",
   },
   {
@@ -116,7 +116,7 @@ const retreats = [
       "A thermal spa center inspired by Tbilisi's historic sulfur bath tradition.",
     pricePerNight: 95,
     rating: 4.5,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/tbilisi.png",
     contactEmail: "contact@tbilisithermalspa.com",
   },
 ];
