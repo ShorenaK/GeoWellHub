@@ -1,3 +1,20 @@
+/*
+  styles.css
+
+  This file contains the custom visual design for GeoWell Hub.
+
+  Responsibilities:
+  - Define the project color palette.
+  - Define typography styles.
+  - Customize Bootstrap components.
+  - Style cards, buttons, forms, images, navigation, and footer.
+  - Improve spacing and responsive layout.
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 /* Global page styling */
 body {
   background-color: #f8f9fa;

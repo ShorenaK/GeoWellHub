@@ -1,3 +1,24 @@
+/*
+  database/retreats.js
+
+  This file handles MongoDB operations for retreat listings.
+
+  Responsibilities:
+  - Get all retreat listings.
+  - Get one retreat by id.
+  - Create new retreat listings.
+  - Update existing retreat listings.
+  - Delete retreat listings.
+  - Use MongoDB ObjectId for document lookup.
+
+  Collection:
+  - retreats
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 
 /// ---------> talks directly to MongoDB.
 

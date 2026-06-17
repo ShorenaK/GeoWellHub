@@ -1,3 +1,23 @@
+/*
+  seed.js
+
+  This file seeds GeoWell Hub sample data into MongoDB.
+
+  Responsibilities:
+  - Connect to MongoDB.
+  - Insert sample retreat records.
+  - Insert sample community listing records.
+  - Help test the application with starter data.
+
+  Collections:
+  - retreats
+  - communityListings
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 // Import the MongoDB connection function
 import { connectToDatabase } from "./mongo.js";
 

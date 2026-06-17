@@ -1,3 +1,19 @@
+/*
+  database/mongo.js
+
+  This file manages the MongoDB connection for GeoWell Hub.
+
+  Responsibilities:
+  - Connect to MongoDB.
+  - Store the active database connection.
+  - Provide the database connection to other files.
+  - Keep database connection logic separate from routes.
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 // Import MongoClient from the native MongoDB driver
 import { MongoClient } from "mongodb";
 

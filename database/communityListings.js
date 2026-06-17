@@ -1,3 +1,25 @@
+/*
+  database/communityListings.js
+
+  This file handles MongoDB operations for community listings.
+
+  Responsibilities:
+  - Get all community listings.
+  - Get one community listing by id.
+  - Create new community listings.
+  - Update existing community listings.
+  - Delete community listings.
+  - Use MongoDB ObjectId for document lookup.
+
+  Collection:
+  - communityListings
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
+
 // This file talks directly to MongoDB for community listings.
 
 // Import ObjectId so we can find documents by MongoDB _id
