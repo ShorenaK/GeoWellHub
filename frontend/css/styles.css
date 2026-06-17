@@ -26,9 +26,9 @@
   --background-light: #f8f9fa;
   --card-background: #ffffff;
   --wellness-light: #e8f5e9;
-  --text-dark: #212529;
   --wellness-gold: #f4b400;
   --wellness-gold-dark: #d89c00;
+  --text-dark: #212529;
 }
 
 /* ==========================================
@@ -66,18 +66,28 @@ h5,
    Navigation
 ========================================== */
 
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--card-background);
+  border-color: #dee2e6;
+}
+
 .navbar-brand {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
+  color: var(--primary-green) !important;
 }
 
 .nav-link {
-  font-weight: 500;
+  font-weight: 600;
+  margin-left: 1rem;
+  color: var(--text-dark) !important;
 }
 
-/* ==========================================
-   Buttons
-========================================== */
+.nav-link:hover {
+  color: var(--primary-green) !important;
+}
 
 /* ==========================================
    Buttons
@@ -88,7 +98,6 @@ h5,
   font-weight: 500;
 }
 
-/* Primary actions */
 .btn-primary {
   background-color: var(--primary-green);
   border-color: var(--primary-green);
@@ -99,7 +108,6 @@ h5,
   border-color: var(--primary-green-dark);
 }
 
-/* Standard button width */
 #create-retreat-btn,
 #create-community-btn,
 .edit-retreat-btn,
@@ -109,38 +117,38 @@ h5,
   min-width: 120px;
 }
 
-/* Edit buttons */
 .edit-retreat-btn,
-.edit-community-btn {
-  background-color: var(--wellness-gold);
-  border-color: var(--wellness-gold);
-  color: var(--text-dark);
-}
-
-.edit-retreat-btn:hover,
-.edit-community-btn:hover {
-  background-color: var(--wellness-gold-dark);
-  border-color: var(--wellness-gold-dark);
-  color: var(--text-dark);
-}
-
-/* Home page Manage Listings button */
+.edit-community-btn,
 .btn-manage {
   background-color: var(--wellness-gold);
   border-color: var(--wellness-gold);
   color: var(--text-dark);
 }
 
+.edit-retreat-btn:hover,
+.edit-community-btn:hover,
 .btn-manage:hover {
   background-color: var(--wellness-gold-dark);
   border-color: var(--wellness-gold-dark);
   color: var(--text-dark);
 }
 
-/* Explorer buttons */
-
 .view-details-btn {
   min-width: 140px;
+}
+
+/* ==========================================
+   Listing Badges
+========================================== */
+
+.official-badge {
+  background-color: var(--water-blue);
+  color: white;
+}
+
+.community-badge {
+  background-color: var(--wellness-gold);
+  color: var(--text-dark);
 }
 
 /* ==========================================
@@ -221,9 +229,8 @@ form {
 
 footer {
   background-color: var(--card-background);
+  border-top: 1px solid #dee2e6;
 }
-
-/* Footer links */
 
 footer a {
   color: var(--primary-green);
