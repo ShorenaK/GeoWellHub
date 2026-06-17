@@ -46,7 +46,7 @@ const searchInput = document.querySelector("#search-input");
 let allRetreats = [];
 let allCommunityListings = [];
 
-// Display both official retreats and community listings
+// Display both official retreats and community listings as Bootstrap cards
 function displayListings(retreats, communityListings) {
   listingsSection.innerHTML = "";
 
@@ -57,18 +57,47 @@ function displayListings(retreats, communityListings) {
 
   retreats.forEach((retreat) => {
     const retreatCard = document.createElement("article");
+    retreatCard.classList.add("col-md-6", "col-lg-4");
 
     retreatCard.innerHTML = `
-      <h2>${retreat.name}</h2>
-      <p><strong>Type:</strong> Official Retreat</p>
-      <p><strong>Region:</strong> ${retreat.region}</p>
-      <p><strong>City:</strong> ${retreat.city}</p>
-      <p><strong>Treatment:</strong> ${retreat.treatmentType}</p>
-      <p><strong>Rating:</strong> ${retreat.rating}</p>
+      <div class="card h-100">
+        ${
+          retreat.imageUrl
+            ? `<img src="${retreat.imageUrl}" class="card-img-top" alt="${retreat.name}" />`
+            : ""
+        }
 
-      <a href="./details.html?type=retreat&id=${retreat._id}" class="btn btn-primary">
-        View Details
-      </a>
+        <div class="card-body d-flex flex-column">
+          <span class="badge text-bg-primary mb-2 align-self-start">
+            Official Retreat
+          </span>
+
+          <h2 class="card-title h5">${retreat.name}</h2>
+
+          <p class="card-text mb-1">
+            <strong>Region:</strong> ${retreat.region}
+          </p>
+
+          <p class="card-text mb-1">
+            <strong>City:</strong> ${retreat.city}
+          </p>
+
+          <p class="card-text mb-1">
+            <strong>Treatment:</strong> ${retreat.treatmentType || "Not provided"}
+          </p>
+
+          <p class="card-text mb-3">
+            <strong>Rating:</strong> ${retreat.rating || "Not rated"}
+          </p>
+
+          <a
+            href="./details.html?type=retreat&id=${retreat._id}"
+            class="btn btn-primary mt-auto"
+          >
+            View Details
+          </a>
+        </div>
+      </div>
     `;
 
     listingsSection.appendChild(retreatCard);
@@ -76,19 +105,47 @@ function displayListings(retreats, communityListings) {
 
   communityListings.forEach((listing) => {
     const listingCard = document.createElement("article");
+    listingCard.classList.add("col-md-6", "col-lg-4");
 
     listingCard.innerHTML = `
-      <h2>${listing.name}</h2>
-      <p><strong>Type:</strong> Community Listing</p>
-      <p><strong>Region:</strong> ${listing.region}</p>
-      <p><strong>City:</strong> ${listing.city}</p>
-      <p><strong>Listing Type:</strong> ${listing.listingType}</p>
-      <p><strong>Rating:</strong> ${listing.rating}</p>
-      <p><strong>Traditional Benefits:</strong> ${listing.traditionalBenefits}</p>
+      <div class="card h-100">
+        ${
+          listing.imageUrl
+            ? `<img src="${listing.imageUrl}" class="card-img-top" alt="${listing.name}" />`
+            : ""
+        }
 
-      <a href="./details.html?type=community&id=${listing._id}" class="btn btn-primary">
-        View Details
-      </a>
+        <div class="card-body d-flex flex-column">
+          <span class="badge text-bg-success mb-2 align-self-start">
+            Community Listing
+          </span>
+
+          <h2 class="card-title h5">${listing.name}</h2>
+
+          <p class="card-text mb-1">
+            <strong>Region:</strong> ${listing.region}
+          </p>
+
+          <p class="card-text mb-1">
+            <strong>City:</strong> ${listing.city}
+          </p>
+
+          <p class="card-text mb-1">
+            <strong>Listing Type:</strong> ${listing.listingType || "Not provided"}
+          </p>
+
+          <p class="card-text mb-3">
+            <strong>Rating:</strong> ${listing.rating || "Not rated"}
+          </p>
+
+          <a
+            href="./details.html?type=community&id=${listing._id}"
+            class="btn btn-primary mt-auto"
+          >
+            View Details
+          </a>
+        </div>
+      </div>
     `;
 
     listingsSection.appendChild(listingCard);
