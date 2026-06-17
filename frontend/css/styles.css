@@ -29,6 +29,7 @@
   --wellness-gold: #f4b400;
   --wellness-gold-dark: #d89c00;
   --text-dark: #212529;
+  --text-muted-green: #5f6b66;
 }
 
 /* ==========================================
@@ -51,6 +52,10 @@ section {
 
 header {
   margin-top: 1.5rem;
+}
+
+header p {
+  color: var(--text-muted-green);
 }
 
 h1,
@@ -87,6 +92,36 @@ h5,
 
 .nav-link:hover {
   color: var(--primary-green) !important;
+}
+
+/* ==========================================
+   Page Titles
+========================================== */
+
+.page-title {
+  color: var(--primary-green);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted-green);
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  border-left: 6px solid var(--primary-green);
+  background-color: var(--wellness-light);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  color: var(--primary-green);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.community-title {
+  border-left-color: var(--wellness-gold);
 }
 
 /* ==========================================
@@ -178,55 +213,21 @@ h5,
   font-weight: 700;
 }
 
-/* Manage page section titles */
-.section-title {
-  border-left: 6px solid var(--primary-green);
-  background-color: var(--wellness-light);
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  color: var(--primary-green);
-  font-weight: 700;
-}
-
-.community-title {
-  border-left-color: var(--wellness-gold);
-  color: var(--primary-green);
-}
-
-/* Manage page main heading */
-.page-title {
-  color: var(--primary-green);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.page-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-dark);
-  margin-bottom: 2rem;
-}
-
-/* Manage page section titles */
-.section-title {
-  border-left: 6px solid var(--primary-green);
-  background-color: var(--wellness-light);
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  color: var(--primary-green);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.community-title {
-  border-left-color: var(--wellness-gold);
-}
-
 /* ==========================================
    Explorer Page
 ========================================== */
 
 #listings {
   margin-top: 1.5rem;
+}
+
+.search-container {
+  max-width: 600px;
+}
+
+.search-label {
+  color: var(--wellness-gold);
+  font-weight: 800;
 }
 
 /* ==========================================
@@ -253,18 +254,6 @@ h5,
   padding: 1rem;
   border-radius: 10px;
   margin-top: 1rem;
-}
-
-.search-container {
-  max-width: 600px;
-} 
-
-.search-label {
-  color: var(--wellness-gold);
-  font-weight: 800;
-}
-header p {
-  color: #5f6b66;
 }
 
 /* ==========================================
@@ -302,4 +291,67 @@ footer a {
 footer a:hover {
   color: var(--water-blue);
   text-decoration: underline;
+}
+
+/* ==========================================
+   Responsive Design
+========================================== */
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .page-title,
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+
+  .card-img-top {
+    height: 220px;
+  }
+
+  .view-details-btn,
+  #create-retreat-btn,
+  #create-community-btn,
+  .edit-retreat-btn,
+  .edit-community-btn,
+  .delete-retreat-btn,
+  .delete-community-btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .page-title,
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .card-img-top {
+    height: 200px;
+  }
+
+  form {
+    padding: 1rem;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
 }
