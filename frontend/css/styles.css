@@ -1,0 +1,38 @@
+/* Global page styling */
+body {
+  background-color: #f8f9fa;
+}
+
+/* Main content sections */
+main {
+  background-color: lightyellow;
+}
+
+/* Card image sizing */
+.card-img-top {
+  height: 280px;
+  object-fit: cover;
+}
+
+/* Details page image sizing */
+#retreat-details .card-img-top {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Card hover effect */
+.card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
+}
+
+/* Footer */
+footer {
+  background-color: #ffffff;
+}
