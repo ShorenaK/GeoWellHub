@@ -36,7 +36,7 @@ const retreats = [
       "A wellness destination in Borjomi known for mineral water, nature, and relaxation.",
     pricePerNight: 120,
     rating: 4.7,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/borjomi.png",
     contactEmail: "info@borjomiwellness.com",
   },
   {
@@ -52,11 +52,11 @@ const retreats = [
       "A historic spa town in west-central Georgia known for thermal mineral baths.",
     pricePerNight: 110,
     rating: 4.6,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/tskaltubo.jpg",
     contactEmail: "info@tskaltubospa.com",
   },
   {
-    name: "Abastumani Mountain Air Resort",
+    name: "Abastumani Mountain Resort",
     region: "Samtskhe-Javakheti",
     city: "Abastumani",
     treatmentType: "Mountain Air Wellness",
@@ -84,7 +84,7 @@ const retreats = [
       "A Black Sea destination known for magnetic sand, beach wellness, and family tourism.",
     pricePerNight: 90,
     rating: 4.5,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/ureki.jpg",
     contactEmail: "visit@urekiwellness.com",
   },
   {
@@ -163,20 +163,6 @@ const communityListings = [
       "A local mineral water spring submitted by the community from the Racha region.",
     submittedBy: "Community Member",
     rating: 4.6,
-    imageUrl: "https://placehold.co/600x400",
-  },
-  {
-    name: "Lechkhumi Mineral Water Source",
-    region: "Racha-Lechkhumi and Kvemo Svaneti",
-    city: "Lechkhumi",
-    listingType: "Mineral Water Source",
-    wellnessNeeds: ["mineral-water", "detox", "relaxation"],
-    traditionalBenefits:
-      "Traditionally believed to support detox, relaxation, and general wellness.",
-    description:
-      "A community-submitted mineral water location from the Lechkhumi area.",
-    submittedBy: "Community Member",
-    rating: 4.5,
     imageUrl: "https://placehold.co/600x400",
   },
 ];
