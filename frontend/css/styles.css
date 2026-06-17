@@ -70,6 +70,12 @@ footer {
   min-width: 120px;
 }
 
+/* Create form buttons */
+#create-retreat-btn,
+#create-community-btn {
+  min-width: 120px;
+}
+
 /* Form sections */
 form {
   background-color: #ffffff;

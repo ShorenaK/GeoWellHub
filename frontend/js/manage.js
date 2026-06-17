@@ -283,6 +283,8 @@ function displayManageCommunityListings(communityListings) {
   <p>${listing.listingType || ""}</p>
   <p>${listing.traditionalBenefits || ""}</p>
 
+<div class="d-flex gap-2 mt-3">
+
   <button
     class="btn btn-secondary edit-community-btn"
     data-id="${listing._id}"
@@ -291,11 +293,13 @@ function displayManageCommunityListings(communityListings) {
   </button>
 
   <button
-    class="btn btn-danger delete-community-btn mt-2"
+    class="btn btn-danger delete-community-btn"
     data-id="${listing._id}"
   >
     Delete
   </button>
+
+</div>
 
   <form class="edit-community-form mt-3 d-none" data-id="${listing._id}">
     <div class="mb-2">
