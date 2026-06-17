@@ -12,34 +12,91 @@ const params = new URLSearchParams(window.location.search);
 const listingType = params.get("type");
 const listingId = params.get("id");
 
-// Display one listing on the page
+// Display one listing on the page using Bootstrap styling
 function displayListing(listing, type) {
   if (!listing) {
-    retreatDetailsSection.innerHTML = "<p>Listing not found.</p>";
+    retreatDetailsSection.innerHTML = `
+      <div class="alert alert-warning">
+        Listing not found.
+      </div>
+    `;
     return;
   }
 
-  const treatmentOrListingType =
-    type === "community" ? listing.listingType : listing.treatmentType;
+  const isCommunityListing = type === "community";
+
+  const listingCategory = isCommunityListing
+    ? "Community Listing"
+    : "Official Retreat";
+
+  const treatmentOrListingType = isCommunityListing
+    ? listing.listingType
+    : listing.treatmentType;
 
   retreatDetailsSection.innerHTML = `
-    <h2>${listing.name}</h2>
+    <article class="card shadow-sm">
+      ${
+        listing.imageUrl
+          ? `<img
+  src="${listing.imageUrl}"
+  class="card-img-top img-fluid"
+  alt="${listing.name}"
+  style="max-height: 400px; object-fit: cover;"
+/>`
+          : ""
+      }
 
-    <p><strong>Type:</strong> ${
-      type === "community" ? "Community Listing" : "Official Retreat"
-    }</p>
+      <div class="card-body">
+        <span class="badge ${
+          isCommunityListing ? "text-bg-success" : "text-bg-primary"
+        } mb-3">
+          ${listingCategory}
+        </span>
 
-    <p><strong>Region:</strong> ${listing.region}</p>
-    <p><strong>City:</strong> ${listing.city}</p>
-    <p><strong>Treatment / Listing Type:</strong> ${treatmentOrListingType}</p>
+        <h2 class="card-title">${listing.name}</h2>
 
-    <p><strong>Traditional Benefits:</strong></p>
-    <p>${listing.traditionalBenefits || "Not provided"}</p>
+        <p class="text-muted">
+          ${listing.city}, ${listing.region}
+        </p>
 
-    <p><strong>Description:</strong></p>
-    <p>${listing.description || "No description available"}</p>
+        <hr />
 
-    <p><strong>Rating:</strong> ${listing.rating || "Not rated"}</p>
+        <div class="row">
+          <div class="col-md-6">
+            <p>
+              <strong>Treatment / Listing Type:</strong><br />
+              ${treatmentOrListingType || "Not provided"}
+            </p>
+          </div>
+
+          <div class="col-md-6">
+            <p>
+              <strong>Rating:</strong><br />
+              ${listing.rating || "Not rated"}
+            </p>
+          </div>
+        </div>
+
+        <h3 class="h5 mt-4">Traditional Benefits</h3>
+        <p>${listing.traditionalBenefits || "Not provided"}</p>
+
+        <h3 class="h5 mt-4">Description</h3>
+        <p>${listing.description || "No description available"}</p>
+
+        <h3 class="h5 mt-4">Wellness Needs</h3>
+        <p>
+          ${
+            listing.wellnessNeeds?.length
+              ? listing.wellnessNeeds.join(", ")
+              : "Not provided"
+          }
+        </p>
+
+        <a href="./explorer.html" class="btn btn-outline-secondary mt-3">
+          Back to Explorer
+        </a>
+      </div>
+    </article>
   `;
 }
 
