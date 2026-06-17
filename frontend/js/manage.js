@@ -124,14 +124,23 @@ function displayManageRetreats(retreats) {
       <p>${retreat.treatmentType || ""}</p>
 
       <!-- Button opens the edit form inside this card -->
-      <button class="btn btn-secondary edit-retreat-btn" data-id="${retreat._id}">
-        Edit
-      </button>
+   <div class="d-flex gap-2 mt-3">
 
-      <!-- Button deletes this retreat -->
-      <button class="btn btn-danger delete-retreat-btn mt-2" data-id="${retreat._id}">
-        Delete
-      </button>
+  <button
+    class="btn btn-secondary edit-retreat-btn"
+    data-id="${retreat._id}"
+  >
+    Edit
+  </button>
+
+  <button
+    class="btn btn-danger delete-retreat-btn"
+    data-id="${retreat._id}"
+  >
+    Delete
+  </button>
+
+</div>
 
       <!-- 
         This form is hidden at first.

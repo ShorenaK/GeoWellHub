@@ -67,7 +67,7 @@ footer {
 .edit-community-btn,
 .delete-retreat-btn,
 .delete-community-btn {
-  width: 100%;
+  min-width: 120px;
 }
 
 /* Form sections */
