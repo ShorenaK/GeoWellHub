@@ -117,7 +117,7 @@ function displayListings(retreats, communityListings) {
         }
 
         <div class="card-body d-flex flex-column">
-          <span class="badge community-badge mb-2 align-self-start">
+          <span class="badge text-bg-success mb-2 align-self-start">
           Community Wellness Listing
           </span>
 
@@ -141,7 +141,7 @@ function displayListings(retreats, communityListings) {
 
           <a
             href="./details.html?type=community&id=${listing._id}"
-            class="btn btn-primary mt-auto"
+            class="btn btn-primary view-details-btn"
           >
             View Details
           </a>
