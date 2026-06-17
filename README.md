@@ -5,6 +5,13 @@ GeoWell Hub will be a web application that helps users discover wellness retreat
 
 Challenges Encountered
 
+Community listings were not loading.
+Community listings were not appearing in Explorer.
+Community listings were not appearing in Manage Listings.
+Details page for community listings returned Cannot GET /api/community-listings/:id.
+Edit functionality originally tried to reuse the Create form, which caused design and usability issues.
+Thunder Client was used to test CRUD routes before connecting frontend functionality.
+
 1. Edit Form Functionality
 
 One of the main challenges during development was implementing the Edit functionality on the Manage Listings page.
