@@ -1,3 +1,25 @@
+/*
+  retreatsApi.js
+
+  This file handles communication between the frontend
+  and the Retreats API.
+
+  Responsibilities:
+  - Fetch all retreat listings.
+  - Fetch one retreat by id.
+  - Create retreat listings.
+  - Update retreat listings.
+  - Delete retreat listings.
+
+  Data Sources:
+  - /api/retreats
+  - /api/retreats/:id
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 // Base URL for all retreat API requests
 const API_URL = "/api/retreats";
 

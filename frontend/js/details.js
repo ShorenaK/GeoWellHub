@@ -1,3 +1,25 @@
+/*
+  details.js
+
+  This file controls the GeoWell Hub Details page.
+
+  Responsibilities:
+  - Read the listing id from the URL.
+  - Determine whether the listing is a retreat or community listing.
+  - Fetch one listing from the backend.
+  - Display detailed information about the selected listing.
+  - Display description, traditional benefits, wellness needs, and rating.
+  - Display listing images when available.
+
+  Data Sources:
+  - /api/retreats/:id
+  - /api/community-listings/:id
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 // Import function that gets one retreat from the backend
 import { fetchRetreatById } from "./api/retreatsApi.js";
 

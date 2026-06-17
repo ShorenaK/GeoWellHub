@@ -1,3 +1,25 @@
+/*
+  communityListingsApi.js
+
+  This file handles communication between the frontend
+  and the Community Listings API.
+
+  Responsibilities:
+  - Fetch all community listings.
+  - Fetch one community listing by id.
+  - Create community listings.
+  - Update community listings.
+  - Delete community listings.
+
+  Data Sources:
+  - /api/community-listings
+  - /api/community-listings/:id
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 // Base URL for all community listing API requests
 const API_URL = "/api/community-listings";
 

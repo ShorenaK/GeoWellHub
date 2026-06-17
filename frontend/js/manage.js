@@ -1,6 +1,28 @@
 
+/*
+  manage.js
 
+  This file controls the GeoWell Hub Manage Listings page.
 
+  Responsibilities:
+  - Create new retreat listings.
+  - Create new community listings.
+  - Display existing retreat listings.
+  - Display existing community listings.
+  - Update retreat listings.
+  - Update community listings.
+  - Delete retreat listings.
+  - Delete community listings.
+  - Refresh listing data after CRUD operations.
+
+  Data Sources:
+  - /api/retreats
+  - /api/community-listings
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
 
 // Import API functions for retreat CRUD operations
 import {
