@@ -15,35 +15,42 @@
   Project: GeoWell Hub
 */
 
-
 /* ==========================================
-   GeoWell Hub Design System
-   Colors and Typography
+   Design System
 ========================================== */
 
 :root {
   --primary-green: #2e7d32;
   --primary-green-dark: #256628;
-
   --water-blue: #0288d1;
-
   --background-light: #f8f9fa;
-
   --card-background: #ffffff;
-
   --wellness-light: #e8f5e9;
-
   --text-dark: #212529;
+  --wellness-gold: #f4b400;
+  --wellness-gold-dark: #d89c00;
 }
 
 /* ==========================================
-   Global Typography
+   Global Styles
 ========================================== */
 
 body {
   font-family: "Open Sans", sans-serif;
   background-color: var(--background-light);
   color: var(--text-dark);
+}
+
+main {
+  background-color: var(--card-background);
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+header {
+  margin-top: 1.5rem;
 }
 
 h1,
@@ -55,27 +62,88 @@ h5,
   font-family: "Poppins", sans-serif;
 }
 
+/* ==========================================
+   Navigation
+========================================== */
 
-
-/* Main content sections */
-main {
-  background-color: #ffffff;
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
-/* Card image sizing */
-.card-img-top {
-  height: 280px;
-  object-fit: cover;
+.nav-link {
+  font-weight: 500;
 }
 
-/* Details page image sizing */
-#retreat-details .card-img-top {
-  max-height: 400px;
-  object-fit: cover;
+/* ==========================================
+   Buttons
+========================================== */
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.btn {
+  border-radius: 10px;
+  font-weight: 500;
 }
 
-/* Card hover effect */
+/* Primary actions */
+.btn-primary {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-green-dark);
+  border-color: var(--primary-green-dark);
+}
+
+/* Standard button width */
+#create-retreat-btn,
+#create-community-btn,
+.edit-retreat-btn,
+.edit-community-btn,
+.delete-retreat-btn,
+.delete-community-btn {
+  min-width: 120px;
+}
+
+/* Edit buttons */
+.edit-retreat-btn,
+.edit-community-btn {
+  background-color: var(--wellness-gold);
+  border-color: var(--wellness-gold);
+  color: var(--text-dark);
+}
+
+.edit-retreat-btn:hover,
+.edit-community-btn:hover {
+  background-color: var(--wellness-gold-dark);
+  border-color: var(--wellness-gold-dark);
+  color: var(--text-dark);
+}
+
+/* Home page Manage Listings button */
+.btn-manage {
+  background-color: var(--wellness-gold);
+  border-color: var(--wellness-gold);
+  color: var(--text-dark);
+}
+
+.btn-manage:hover {
+  background-color: var(--wellness-gold-dark);
+  border-color: var(--wellness-gold-dark);
+  color: var(--text-dark);
+}
+
+/* ==========================================
+   Cards
+========================================== */
+
 .card {
+  border: none;
+  border-radius: 12px;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -86,70 +154,65 @@ main {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
 }
 
-/* Footer */
-footer {
-  background-color: #ffffff;
+.card-img-top {
+  height: 280px;
+  object-fit: cover;
 }
-/* Custom spacing for listings section */
+
+/* ==========================================
+   Explorer Page
+========================================== */
+
 #listings {
   margin-top: 1.5rem;
 }
 
-/* Button styling */
-.btn {
-  border-radius: 10px;
-  font-weight: 500;
+/* ==========================================
+   Details Page
+========================================== */
+
+#retreat-details .card-img-top {
+  max-height: 400px;
+  object-fit: cover;
 }
 
-/* Manage page listing sections */
+/* ==========================================
+   Manage Page
+========================================== */
+
 #manage-retreat-list,
 #manage-community-list {
   margin-top: 1rem;
 }
 
-/* Edit forms inside manage listing cards */
 .edit-retreat-form,
 .edit-community-form {
-  background-color: #f8f9fa;
+  background-color: var(--background-light);
   padding: 1rem;
   border-radius: 10px;
   margin-top: 1rem;
 }
 
-/* Manage page buttons */
-.edit-retreat-btn,
-.edit-community-btn,
-.delete-retreat-btn,
-.delete-community-btn {
-  min-width: 120px;
-}
+/* ==========================================
+   Forms
+========================================== */
 
-/* Create form buttons */
-#create-retreat-btn,
-#create-community-btn {
-  min-width: 120px;
-}
-
-/* Form sections */
 form {
-  background-color: #ffffff;
+  background-color: var(--card-background);
   border: 1px solid #dee2e6;
   border-radius: 12px;
   padding: 1.5rem;
   margin-bottom: 2rem;
 }
 
-/* Form inputs */
 .form-control {
   border-radius: 10px;
 }
 
-/* Page section spacing */
-section {
-  margin-bottom: 2rem;
-}
+/* ==========================================
+   Footer
+========================================== */
 
-/* Page headers */
-header {
-  margin-top: 1.5rem;
+footer {
+  background-color: var(--card-background);
 }
