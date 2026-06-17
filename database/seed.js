@@ -135,7 +135,7 @@ const communityListings = [
       "A local community-submitted sulfur water source in western Georgia.",
     submittedBy: "Community Member",
     rating: 4.4,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/abasha.png",
   },
   {
     name: "Senaki Mineral Water Source",
@@ -149,7 +149,7 @@ const communityListings = [
       "A community-submitted mineral water source near Senaki.",
     submittedBy: "Community Member",
     rating: 4.3,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/senaki.png",
   },
   {
     name: "Racha Mineral Water Spring",
