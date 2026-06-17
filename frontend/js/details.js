@@ -49,7 +49,7 @@ function displayListing(listing, type) {
 
   const listingCategory = isCommunityListing
     ? "Community Listing"
-    : "Official Retreat";
+    : "Official Wellness Retreat";
 
   const treatmentOrListingType = isCommunityListing
     ? listing.listingType
@@ -114,9 +114,9 @@ function displayListing(listing, type) {
           }
         </p>
 
-        <a href="./explorer.html" class="btn btn-outline-secondary mt-3">
-          Back to Explorer
-        </a>
+        <a href="./explorer.html" class="btn btn-success mt-3">
+  Back to Explorer
+</a>
       </div>
     </article>
   `;
