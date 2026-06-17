@@ -163,7 +163,7 @@ const communityListings = [
       "A local mineral water spring submitted by the community from the Racha region.",
     submittedBy: "Community Member",
     rating: 4.6,
-    imageUrl: "https://placehold.co/600x400",
+    imageUrl: "./images/racha.png",
   },
 ];
 
