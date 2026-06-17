@@ -1,4 +1,27 @@
-///Browser asks Express for retreats, Express asks MongoDB, then Express sends JSON back I need to create a route for retreats that will use the getRetreats function to get the data from MongoDB and send it back to the frontend as JSON.
+/*
+  routes/retreats.js
+
+  This file defines all Retreat API routes.
+
+  Responsibilities:
+  - Return all retreat listings.
+  - Return one retreat by id.
+  - Create new retreat listings.
+  - Update existing retreat listings.
+  - Delete retreat listings.
+  - Handle route-level error responses.
+
+  Routes:
+  - GET /api/retreats
+  - GET /api/retreats/:id
+  - POST /api/retreats
+  - PUT /api/retreats/:id
+  - DELETE /api/retreats/:id
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
 
 // Import Express so we can create a router
 import express from "express";

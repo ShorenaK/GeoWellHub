@@ -1,3 +1,25 @@
+/*
+  backend.js
+
+  This file starts the GeoWell Hub backend server.
+
+  Responsibilities:
+  - Create and configure the Express application.
+  - Connect to MongoDB.
+  - Register API routes.
+  - Serve frontend files.
+  - Parse JSON request bodies.
+  - Start the web server.
+
+  Routes:
+  - /api/retreats
+  - /api/community-listings
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 // Import Express framework
 import express from "express";
 

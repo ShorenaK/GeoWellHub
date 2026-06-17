@@ -1,3 +1,28 @@
+/*
+  routes/communityListings.js
+
+  This file defines all Community Listing API routes.
+
+  Responsibilities:
+  - Return all community listings.
+  - Return one community listing by id.
+  - Create new community listings.
+  - Update existing community listings.
+  - Delete community listings.
+  - Handle route-level error responses.
+
+  Routes:
+  - GET /api/community-listings
+  - GET /api/community-listings/:id
+  - POST /api/community-listings
+  - PUT /api/community-listings/:id
+  - DELETE /api/community-listings/:id
+
+  Author: Shorena K. Anzhilov
+  Course: CS 5610 Web Development
+  Project: GeoWell Hub
+*/
+
 // Import Express so we can create a router
 import express from "express";
 
