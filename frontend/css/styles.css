@@ -216,3 +216,17 @@ form {
 footer {
   background-color: var(--card-background);
 }
+
+/* Footer links */
+
+footer a {
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 0.4rem;
+}
+
+footer a:hover {
+  color: var(--water-blue);
+  text-decoration: underline;
+}
