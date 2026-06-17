@@ -1,7 +1,6 @@
 /*
   explorer.js
 
-  Purpose:
   This file controls the GeoWell Hub Explorer page.
 
   Responsibilities:
@@ -9,7 +8,7 @@
   - Fetch community wellness listings from the communityListings collection.
   - Combine both collections and display them on the Explorer page.
   - Create listing cards dynamically using client-side rendering.
-  - Provide links to the Details page for official retreats.
+  - Provide links to the Details page for each listing.
   - Support real-time searching and filtering.
   - Search by:
       * Name
