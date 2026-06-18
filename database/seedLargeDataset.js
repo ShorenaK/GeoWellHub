@@ -25,8 +25,7 @@ async function seedLargeDataset() {
     const db = await connectToDatabase();
 
     // Get community listings collection
-    const communityListingsCollection =
-      db.collection("communityListings");
+    const communityListingsCollection = db.collection("communityListings");
 
     // Format Mockaroo records before insertion
     const formattedListings = mockData.map((listing) => {
@@ -37,18 +36,12 @@ async function seedLargeDataset() {
         mockarooRecord: true,
 
         // Required field used by Explorer search
-        wellnessNeeds: [
-          "relaxation",
-          "mineral-water",
-          "wellness",
-        ],
+        wellnessNeeds: ["relaxation", "mineral-water", "wellness"],
       };
     });
 
     // Insert all Mockaroo records
-    await communityListingsCollection.insertMany(
-      formattedListings,
-    );
+    await communityListingsCollection.insertMany(formattedListings);
 
     console.log(
       `${formattedListings.length} Mockaroo records inserted successfully.`,
@@ -56,10 +49,7 @@ async function seedLargeDataset() {
 
     process.exit(0);
   } catch (error) {
-    console.error(
-      "Error inserting Mockaroo records:",
-      error,
-    );
+    console.error("Error inserting Mockaroo records:", error);
 
     process.exit(1);
   }

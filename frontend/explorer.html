@@ -15,100 +15,86 @@
 
 <!-- Moving the search boc to this page  -->
 
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GeoWell Hub | Explorer</title>
-<!-- Bootstrap Section -->
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Bootstrap Section -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap"
-  rel="stylesheet"
-/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
 
-       <!-- Custom CSS -->
-<link rel="stylesheet" href="./css/styles.css" />
-
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
   <body>
-
     <!-- Bootstrap Navigation Bar -->
-     <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
-  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+      <div class="container">
+        <!-- Website logo / brand name -->
+        <a class="navbar-brand fw-bold" href="./index.html">
+          🟡 🌿 GeoWell Hub 🌿 🟡
+        </a>
 
-    <!-- Website logo / brand name -->
-    <a class="navbar-brand fw-bold" href="./index.html">
-     🟡 🌿 GeoWell Hub 🌿 🟡  
-    </a>
+        <!-- Mobile menu button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- Mobile menu button -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#mainNavbar"
-      aria-controls="mainNavbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Navigation links -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html"> Home </a>
+            </li>
 
-    <!-- Navigation links -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="./explorer.html"> Explorer </a>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="./index.html">
-            Home
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="./explorer.html">
-            Explorer
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="./manage.html">
-            Manage Listings
-          </a>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-</nav>
+            <li class="nav-item">
+              <a class="nav-link" href="./manage.html"> Manage Listings </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <div class="container py-4">
       <header class="mb-4">
-       <h1 class="section-title">
-  GeoWell Hub Explorer
-</h1>
-        <p>Search wellness retreats and community wellness places in Georgia.</p>
-
-
+        <h1 class="section-title">GeoWell Hub Explorer</h1>
+        <p>
+          Search wellness retreats and community wellness places in Georgia.
+        </p>
       </header>
 
       <main>
         <!-- Search box -->
         <div class="mb-3 search-container">
           <label for="search-input" class="search-label">
-  Search by wellness need
-</label>
+            Search by wellness need
+          </label>
 
           <input
             type="text"
@@ -125,29 +111,26 @@
 
     <script type="module" src="./js/explorer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
- <!-- Footer -->
-<footer class="border-top mt-5 py-4">
-  <div class="container text-center">
+    <!-- Footer -->
+    <footer class="border-top mt-5 py-4">
+      <div class="container text-center">
+        <h5>GeoWell Hub</h5>
 
-    <h5>GeoWell Hub</h5>
+        <p>
+          Discover wellness retreats, mineral waters, thermal spas, and
+          community wellness destinations throughout Georgia.
+        </p>
 
-    <p>
-      Discover wellness retreats, mineral waters, thermal spas,
-      and community wellness destinations throughout Georgia.
-    </p>
+        <div class="mb-3">
+          <a href="./index.html">Home</a> |
+          <a href="./explorer.html">Explorer</a> |
+          <a href="./manage.html">Manage Listings</a>
+        </div>
 
-    <div class="mb-3">
-      <a href="./index.html">Home</a> |
-      <a href="./explorer.html">Explorer</a> |
-      <a href="./manage.html">Manage Listings</a>
-    </div>
-
-    <p class="text-muted mb-0">
-      CS 5610 Web Development Project • Shorena K. Anzhilov • 2026
-    </p>
-
-  </div>
-</footer>
-    
+        <p class="text-muted mb-0">
+          CS 5610 Web Development Project • Shorena K. Anzhilov • 2026
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

@@ -19,7 +19,6 @@
   Project: GeoWell Hub
 */
 
-
 // This file talks directly to MongoDB for community listings.
 
 // Import ObjectId so we can find documents by MongoDB _id
@@ -154,4 +153,3 @@ export async function deleteCommunityListing(id) {
     throw error;
   }
 }
-

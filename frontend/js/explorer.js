@@ -165,7 +165,9 @@ function filterRetreats(searchText) {
       retreat.city?.toLowerCase().includes(lowerCaseSearchText) ||
       retreat.region?.toLowerCase().includes(lowerCaseSearchText) ||
       retreat.treatmentType?.toLowerCase().includes(lowerCaseSearchText) ||
-      retreat.traditionalBenefits?.toLowerCase().includes(lowerCaseSearchText) ||
+      retreat.traditionalBenefits
+        ?.toLowerCase()
+        .includes(lowerCaseSearchText) ||
       retreat.wellnessNeeds?.some((need) =>
         need.toLowerCase().includes(lowerCaseSearchText),
       )
@@ -178,7 +180,9 @@ function filterRetreats(searchText) {
       listing.city?.toLowerCase().includes(lowerCaseSearchText) ||
       listing.region?.toLowerCase().includes(lowerCaseSearchText) ||
       listing.listingType?.toLowerCase().includes(lowerCaseSearchText) ||
-      listing.traditionalBenefits?.toLowerCase().includes(lowerCaseSearchText) ||
+      listing.traditionalBenefits
+        ?.toLowerCase()
+        .includes(lowerCaseSearchText) ||
       listing.wellnessNeeds?.some((need) =>
         need.toLowerCase().includes(lowerCaseSearchText),
       )

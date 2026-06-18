@@ -39,7 +39,6 @@ import {
 // A router lets us keep routes separate from backend.js
 const router = express.Router();
 
-
 // ------------------------- //
 
 // Define a route for GET requests to /api/retreats

@@ -145,8 +145,7 @@ const communityListings = [
     wellnessNeeds: ["mineral-water", "digestion", "relaxation"],
     traditionalBenefits:
       "Traditionally believed to support digestion and general wellness through local mineral water.",
-    description:
-      "A community-submitted mineral water source near Senaki.",
+    description: "A community-submitted mineral water source near Senaki.",
     submittedBy: "Community Member",
     rating: 4.3,
     imageUrl: "./images/senaki.png",
@@ -185,7 +184,9 @@ async function seedDatabase() {
     await retreatsCollection.insertMany(retreats);
     await communityListingsCollection.insertMany(communityListings);
 
-    console.log("Retreat and community listing seed data inserted successfully.");
+    console.log(
+      "Retreat and community listing seed data inserted successfully.",
+    );
 
     // Exit the script successfully
     process.exit(0);

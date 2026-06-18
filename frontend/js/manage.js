@@ -1,4 +1,3 @@
-
 /*
   manage.js
 
@@ -32,7 +31,7 @@ import {
   updateRetreat,
 } from "./api/retreatsApi.js";
 
-// Import API functions for community listing 
+// Import API functions for community listing
 import {
   createCommunityListing,
   fetchCommunityListings,
@@ -67,9 +66,7 @@ retreatForm.addEventListener("submit", async (event) => {
     traditionalBenefits: document.querySelector("#retreat-benefits").value,
 
     // Use the user image URL, or fallback to a placeholder image
-    imageUrl:
-      document.querySelector("#retreat-image").value ||
-      "",
+    imageUrl: document.querySelector("#retreat-image").value || "",
 
     // Convert comma-separated text into an array
     wellnessNeeds: document
@@ -93,9 +90,7 @@ retreatForm.addEventListener("submit", async (event) => {
   await loadManageRetreats();
 });
 
-
 // Listen for create form submission on community listing form
-
 
 communityForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -107,9 +102,7 @@ communityForm.addEventListener("submit", async (event) => {
     listingType: document.querySelector("#community-type").value,
     description: document.querySelector("#community-description").value,
     traditionalBenefits: document.querySelector("#community-benefits").value,
-    imageUrl:
-      document.querySelector("#community-image").value ||
-      "",
+    imageUrl: document.querySelector("#community-image").value || "",
     wellnessNeeds: document
       .querySelector("#community-wellness-needs")
       .value.split(",")
@@ -126,8 +119,6 @@ communityForm.addEventListener("submit", async (event) => {
 
   await loadManageCommunityListings();
 });
-
-
 
 // Display all retreats on the manage page
 function displayManageRetreats(retreats) {
@@ -277,7 +268,9 @@ manageRetreatList.addEventListener("click", async (event) => {
   if (event.target.classList.contains("delete-retreat-btn")) {
     const retreatId = event.target.dataset.id;
 
-    const confirmDelete = confirm("Are you sure you want to delete this retreat?");
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this retreat?",
+    );
 
     if (!confirmDelete) {
       return;
@@ -299,7 +292,7 @@ function displayManageCommunityListings(communityListings) {
     const listingCard = document.createElement("article");
     listingCard.classList.add("card", "mb-3", "p-3");
 
- listingCard.innerHTML = `
+    listingCard.innerHTML = `
   <h3>${listing.name}</h3>
   <p>${listing.city}, ${listing.region}</p>
   <p>${listing.listingType || ""}</p>
@@ -407,7 +400,6 @@ manageRetreatList.addEventListener("submit", async (event) => {
   await loadManageRetreats();
 });
 
-
 // Listen for delete clicks on community listing cards
 manageCommunityList.addEventListener("click", async (event) => {
   if (event.target.classList.contains("edit-community-btn")) {
@@ -460,7 +452,8 @@ manageCommunityList.addEventListener("submit", async (event) => {
     city: editForm.querySelector(".edit-community-city").value,
     region: editForm.querySelector(".edit-community-region").value,
     listingType: editForm.querySelector(".edit-community-type").value,
-    traditionalBenefits: editForm.querySelector(".edit-community-benefits").value,
+    traditionalBenefits: editForm.querySelector(".edit-community-benefits")
+      .value,
   };
 
   await updateCommunityListing(listingId, updatedListing);

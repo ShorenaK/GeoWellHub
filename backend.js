@@ -40,15 +40,12 @@ const PORT = 3000;
 
 // Middleware that allows Express to read JSON data
 app.use(express.json());
- 
 
 // Register retreat routes
 app.use("/api/retreats", retreatRoutes);
 
 // Register community listing routes
 app.use("/api/community-listings", communityListingRoutes);
-
-
 
 // Tell Express to serve files from the frontend folder
 // This allows index.html, CSS, and JS files to be loaded

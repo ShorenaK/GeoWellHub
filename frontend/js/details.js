@@ -124,13 +124,10 @@ function displayListing(listing, type) {
 
 // Load the correct listing based on URL type
 async function loadListing() {
-  let listing = null;
-
-  if (listingType === "community") {
-    listing = await fetchCommunityListingById(listingId);
-  } else {
-    listing = await fetchRetreatById(listingId);
-  }
+  const listing =
+    listingType === "community"
+      ? await fetchCommunityListingById(listingId)
+      : await fetchRetreatById(listingId);
 
   displayListing(listing, listingType || "retreat");
 }
