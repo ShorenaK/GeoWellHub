@@ -1,0 +1,274 @@
+# GeoWell Hub Design Document
+
+## Project Overview
+
+GeoWell Hub is a wellness tourism web application designed to help users discover wellness destinations throughout Georgia. The application allows users to browse official wellness retreats and community-submitted wellness locations, search by wellness needs, view detailed destination information, and manage wellness listings.
+
+The application was designed with simplicity, usability, accessibility, and responsive design in mind.
+
+**The primary audience for this website includes:**
+
+- [ ] Wellness travelers
+- [ ] Health tourism visitors
+- [ ] Community contributors
+- [ ] Tourism researchers
+- [ ] Academic instructors and peers
+
+**The website consists of four pages:**
+
+### Home Page - index.html
+
+The Home page contains:
+
+- [ ] Hero section
+- [ ] GeoWell Hub introduction
+- [ ] Featured Wellness Regions section
+- [ ] Navigation menu
+- [ ] Call-to-action buttons
+- [ ] Footer
+
+### Explorer Page - explorer.html
+
+The Explorer page contains:
+
+- [ ] Search by wellness need
+- [ ] Official wellness retreat listings
+- [ ] Community wellness listings
+- [ ] Listing cards
+- [ ] Region information
+- [ ] Rating information
+- [ ] View Details button
+
+### Details Page - details.html
+
+The Details page contains:
+
+- [ ] Listing image
+- [ ] Listing information
+- [ ] Traditional benefits
+- [ ] Description
+- [ ] Wellness needs
+- [ ] Rating information
+- [ ] Back to Explorer button
+
+### Manage Listings Page - manage.html
+
+The Manage Listings page contains:
+
+- [ ] Add new retreat form
+- [ ] Add community listing form
+- [ ] Existing listings section
+- [ ] Edit listing functionality
+- [ ] Delete listing functionality
+- [ ] Listing management controls
+
+---
+
+## Design Decisions
+
+The website uses a wellness-inspired visual design focused on readability, accessibility, and usability.
+
+- [ ] Responsive layout using Bootstrap 5
+- [ ] Consistent navigation structure
+- [ ] Green wellness-inspired color palette
+- [ ] Gold accent color for important actions
+- [ ] Card-based content presentation
+- [ ] Responsive mobile-friendly design
+- [ ] Consistent section styling across all pages
+
+---
+
+## Technologies Used
+
+### Front-End
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Bootstrap 5
+
+### Back-End
+
+- Node.js
+- Express.js
+
+### Database
+
+- MongoDB (Docker Container)
+
+### Development Tools
+
+
+- MongoDB Compass
+- Docker
+- Visual Studio Code
+- Git
+- GitHub
+- ESLint
+- Prettier
+- npm
+
+---
+
+## Accessibility Considerations
+
+The website includes several accessibility features:
+
+- [ ] Semantic HTML elements
+- [ ] Descriptive image alt text
+- [ ] Clear heading hierarchy
+- [ ] Readable color contrast
+- [ ] Responsive layouts
+- [ ] Accessible navigation
+
+---
+
+## Challenges
+
+Several challenges were encountered during development:
+
+- [ ] Creating a full-stack application
+- [ ] Designing MongoDB collections
+- [ ] Implementing CRUD functionality
+- [ ] Managing community and official listings
+- [ ] Creating reusable API modules
+- [ ] Implementing search functionality
+- [ ] Generating and testing 1000+ records
+- [ ] Balancing performance and deployment considerations
+
+---
+
+## Future Improvements
+
+- [ ] Pagination for large datasets
+- [ ] Advanced search filters
+- [ ] User authentication
+- [ ] Image uploads
+- [ ] AWS deployment
+- [ ] Favorites functionality
+- [ ] Search optimization
+- [ ] Additional wellness categories
+
+---
+
+## Conclusion
+
+GeoWell Hub successfully provides a centralized platform for discovering wellness destinations throughout Georgia. The project demonstrates full-stack web development concepts including responsive design, CRUD operations, REST APIs, MongoDB integration, accessibility considerations, and large dataset management.
+
+---
+
+# User Personas
+
+## Persona 1: Wellness Traveler - Mara
+
+Maria is planning a wellness-focused trip to Georgia. She wants to browse wellness destinations and discover places that support relaxation, mineral water therapy, and overall wellness.
+
+## Persona 2: Community Contributor - David
+
+David enjoys sharing local wellness destinations with others. He uses GeoWell Hub to submit community wellness locations and help visitors discover hidden wellness resources.
+
+## Persona 3: Tourism Researcher - Sarah
+
+Sarah researches health tourism destinations and uses GeoWell Hub to learn about wellness regions and traditional wellness practices throughout Georgia.
+
+---
+
+# User Stories
+
+## User Story 1
+
+As a traveler, I want to browse wellness destinations so that I can discover places that support my wellness goals.
+
+## User Story 2
+
+As a traveler, I want to search by wellness need so that I can quickly find destinations that match my interests.
+
+## User Story 3
+
+As a visitor, I want to view detailed information about a wellness destination so that I can determine whether it meets my needs.
+
+## User Story 4
+
+As an administrator, I want to create, edit, and delete listings so that information remains accurate and up to date.
+
+---
+
+# Design Mockups & Wireframes
+
+The website layout was planned using wireframe sketches before development.
+
+## Final Wireframe
+
+![Final Wireframe](../frontend/images/figmaFile_new.png)
+
+## Original Wireframe Version 
+
+![Wireframe 1](../frontend/images/figmaFile_2_drawing.png)
+
+---
+
+# Validation & Code Quality
+
+The project was validated using ESLint and formatted using Prettier.
+
+JavaScript files were checked using ESLint and all validation issues were resolved.
+
+Code formatting was standardized using Prettier to maintain consistency throughout the project.
+
+---
+
+# Large Dataset Requirement (1000+ Records)
+
+The project requirement included generating and testing a dataset containing more than 1000 records.
+
+To satisfy this requirement:
+
+- [ ] Generated 1000 wellness destination records using Mockaroo
+- [ ] Exported records into MOCK_DATA.json
+- [ ] Created a separate seedLargeDataset.js script
+- [ ] Successfully inserted records into MongoDB Atlas
+- [ ] Verified application functionality using the large dataset
+
+## MongoDB Atlas Validation
+
+![1000 Records Validation](./images/seed_data_1000_0.png)
+
+## Explorer Page Validation
+
+![1000 Records Validation](./images/seed_data_1000_1.png)
+
+## Additional Validation
+
+![1000 Records Validation](./images/seed_data_1000_2.png)
+
+![1000 Records Validation](./images/seed_data_1000_3.png)
+
+![1000 Records Validation](./images/seed_data_1000_4.png)
+
+### Deployment Note
+
+The large dataset was retained for testing and validation purposes.
+
+During testing, rendering all 1000+ records simultaneously negatively impacted application performance and user experience. For deployment, a smaller production dataset was used while retaining the large dataset generation files and validation screenshots within the repository.
+
+---
+
+# ESLint Validation
+Commands used:
+
+npx eslint .
+
+![ESLint Validation](../frontend/images/eslint.png)
+
+---
+
+# Prettier Validation
+
+Commands used:
+
+```bash
+npx prettier --write .
+npx prettier --check .
+```
+
+![Prettier Validation](../frontend/images/prettier.png)
