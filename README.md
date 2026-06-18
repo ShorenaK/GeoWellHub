@@ -1,394 +1,138 @@
-# GeoWellHub
+# GeoWell Hub
 
-GeoWell Hub will be a web application that helps users discover wellness retreats, mineral water resorts, thermal resorts, spas, and health-focused hotels throughout the Republic of Georgia. Georgia is internationally known for its mineral water destinations, thermal springs, mountain resorts, and wellness tourism opportunities.
+## Project Description
 
-====
+GeoWell Hub is a full-stack wellness tourism web application designed to help users discover wellness destinations throughout Georgia.
 
-Challenges Encountered
+The platform allows users to browse official wellness retreats and community-submitted wellness locations, search destinations by wellness needs, view detailed destination information, and manage listings through a complete CRUD interface.
 
-Community listings were not loading.
-Community listings were not appearing in Explorer.
-Community listings were not appearing in Manage Listings.
-Details page for community listings returned Cannot GET /api/community-listings/:id.
-Edit functionality originally tried to reuse the Create form, which caused design and usability issues.
-Thunder Client was used to test CRUD routes before connecting frontend functionality.
+The website consists of four pages:
 
-1. Edit Form Functionality
+- Home Page
+- Explorer Page
+- Details Page
+- Manage Listings Page
 
-One of the main challenges during development was implementing the Edit functionality on the Manage Listings page.
+Visitors can explore mineral water resorts, thermal spas, mountain wellness destinations, and community-submitted wellness locations while learning about traditional wellness benefits and treatments.
 
-Initially, clicking the Edit button populated the top "Create Retreat" form instead of editing the selected listing. This created confusion because users could accidentally create duplicate records instead of updating existing ones.
+---
 
-To solve this issue, a separate edit form was added inside each listing card. This allowed users to edit a specific listing directly from its own card while keeping the Create form dedicated to creating new records.
+## Live Application
 
-2. Community Listings Not Loading
+### Website
 
-Another challenge occurred after replacing the Reviews collection with the Community Listings collection.
+[GeoWell Hub](DEPLOYMENT_LINK_HERE)
 
-Community listings were successfully stored in MongoDB but were not displaying on the Explorer page or Manage Listings page.
+### GitHub Repository
 
-The issue was traced to missing frontend rendering logic and missing API integration. Additional functions were added to load, display, edit, and delete community listings.
+[GitHub Repository](GITHUB_REPOSITORY_LINK_HERE)
 
-3. Community Listing Details Route
+---
 
-The Details page originally only supported Retreat records.
+## Website Preview
 
-When a user clicked "View Details" on a Community Listing, the application returned a "Cannot GET" error because a GET by ID route for community listings had not yet been implemented.
+### Home Page
 
-To solve this issue:
+![Home Page Screenshot](./frontend/images/home.png)
 
-- A GET /api/community-listings/:id route was added.
-- A database function was created to retrieve a single community listing by MongoDB ID.
-- The Details page was updated to support both Retreats and Community Listings.
+### Explorer Page
 
-4. Managing Multiple Collections
+![Explorer Page Screenshot](./frontend/images/explorer.png)
 
-The application uses two MongoDB collections:
+### Details Page
 
-- retreats
-- communityListings
+![Details Page Screenshot](./frontend/images/details.png)
 
-Managing two separate collections while maintaining consistent CRUD functionality required additional planning and testing.
+### Manage Listings Page
 
-Special attention was required to ensure that Explorer, Details, and Manage pages correctly handled both collections.
+![Manage Listings Screenshot](./frontend/images/manage.png)
 
-5. API Testing
+![Manage Listings Screenshot](./frontend/images/manage1.png)
 
-Before connecting the frontend, all routes were tested using Thunder Client.
+---
 
-Testing API routes independently helped identify backend issues early and made frontend integration easier.
+## Technologies Used
 
-All CRUD routes were verified through Thunder Client before implementing the user interface.
+### Front-End
 
-Tools Used for Testing
+- HTML5
+- CSS3
+- JavaScript (ES6 Modules)
+- Bootstrap 5
 
-- Thunder Client
-- MongoDB Compass
-- Browser Developer Tools
-- MongoDB Native Driver
+### Back-End
+
+- Node.js
 - Express.js
-- # Node.js
 
-Future Improvements
+### Database
 
-1. User Authentication
+- MongoDB (Docker Container)
 
-Add secure user authentication and account management.
+### Development Tools
 
-Users would be able to:
+- Visual Studio Code
+- Git
+- GitHub
+- Docker
+- MongoDB Compass
+- Thunder Client
+- ESLint
+- Prettier
+- npm
 
-- Register for an account
-- Sign in
-- Sign out
-- Manage their profile
+---
 
-Authentication would help protect user-generated content and improve platform security.
+## Features
 
-2. User Reviews
+### Wellness Destination Explorer
 
-Add a dedicated Reviews feature.
+- Browse official wellness retreats
+- Browse community wellness listings
+- Search by wellness needs
+- View destination details
 
-Authenticated users would be able to:
+### Listing Management
 
-- Create reviews
-- Edit their own reviews
-- Delete their own reviews
-- Rate wellness destinations
+- Create retreat listings
+- Create community listings
+- Edit listings
+- Delete listings
+- Manage wellness destinations
 
-This feature was originally considered during project planning and may be implemented in a future version.
+### Destination Details
 
-3. Separate User Portals
+- View destination images
+- View descriptions
+- View traditional wellness benefits
+- View ratings
+- View wellness needs
 
-Create separate experiences for different user types.
+---
 
-Community Members
+## Large Dataset Requirement
 
-- Submit local mineral springs
-- Submit wellness destinations
-- Contribute community information
+To satisfy the project requirement for large datasets, a dataset containing more than 1000 records was generated using Mockaroo.
 
-Business Owners
+The generated records were:
 
-- Create official retreat listings
-- Manage spa listings
-- Manage resort listings
-- Update business information
+- Exported into `MOCK_DATA.json`
+- Inserted using `seedLargeDataset.js`
+- Imported into MongoDB
+- Successfully tested through the application
 
-These features would be supported through separate account types and permissions.
+The large dataset was retained for testing and validation purposes.
 
-4. Dedicated Listing Creation Pages
+For deployment, a smaller production dataset was used to provide a better user experience and improve application performance.
 
-Currently, retreat listings and community listings are managed from the same page.
+---
 
-A future version would separate them into:
+## Validation & Code Quality
 
-- Community Listing Submission Page
-- Retreat Owner Dashboard
+The project was validated using ESLint and formatted using Prettier.
 
-This would create a more user-friendly experience and better support future authentication features.
+### ESLint
 
-5. Image Upload Support
-
-Currently users provide image URLs.
-
-A future version would allow:
-
-- Direct image uploads
-- Multiple photos per listing
-- Photo galleries
-
-6. Advanced Search and Filtering
-
-Future enhancements could include:
-
-- Search by region
-- Search by wellness need
-- Search by treatment type
-- Search by rating
-- Interactive filtering
-
-7. Interactive Map Integration
-
-Display wellness destinations on an interactive map of Georgia.
-
-Users could discover nearby:
-
-- Mineral water resorts
-- Thermal spas
-- Wellness hotels
-- Community wellness destinations
-
-8. Mobile Application
-
-Develop a mobile version of GeoWell Hub for travelers who wish to access wellness information while visiting Georgia.
-
-9. Wellness Destination Verification
-
-Allow administrators to verify business listings and community submissions to improve data quality and reliability.
-
-10. Personalized Recommendations
-
-# Provide wellness destination recommendations based on user interests, wellness goals, and previous searches.
-
-========================================
-
-Project Progress Notes
-
-Backend functionality completed and tested.
-
-Completed Features
-
-Backend
-
-- Node.js + Express server
-- MongoDB Native Driver
-- ES Modules (import/export)
-- REST API architecture
-- No Mongoose used
-- No template engines used
-
-MongoDB Collections
-
-1. retreats
-
-- Create Retreat
-- Read All Retreats
-- Read Retreat By ID
-- Update Retreat
-- Delete Retreat
-
-2. communityListings
-
-- Create Community Listing
-- Read All Community Listings
-- Read Community Listing By ID
-- Update Community Listing
-- Delete Community Listing
-
-Frontend Pages
-
-Home Page
-
-- http://localhost:3000
-
-Explorer Page
-
-- http://localhost:3000/explorer.html
-
-Manage Listings Page
-
-- http://localhost:3000/manage.html
-
-Details Page
-
-- http://localhost:3000/details.html?id=RECORD_ID
-
-Explorer Features
-
-- Displays Retreat listings
-- Displays Community listings
-- Search functionality
-- Filter functionality
-- View Details buttons
-- Client-side rendering using Vanilla JavaScript
-
-Manage Listings Features
-
-Retreat Management
-
-- Create Retreat
-- Edit Retreat
-- Delete Retreat
-- View Existing Retreats
-
-Community Listing Management
-
-- Create Community Listing
-- Edit Community Listing
-- Delete Community Listing
-- View Existing Community Listings
-
-Details Page
-
-- Loads Retreat details by ID
-- Loads Community Listing details by ID
-- Displays descriptions
-- Displays traditional benefits
-- Displays wellness information
-
-API Routes Tested
-
-Retreat Routes
-
-GET
-/api/retreats
-
-GET BY ID
-/api/retreats/:id
-
-POST
-/api/retreats
-
-PUT
-/api/retreats/:id
-
-DELETE
-/api/retreats/:id
-
-Community Listing Routes
-
-GET
-/api/community-listings
-
-GET BY ID
-/api/community-listings/:id
-
-POST
-/api/community-listings
-
-PUT
-/api/community-listings/:id
-
-DELETE
-/api/community-listings/:id
-
-Testing Completed
-
-Thunder Client
-
-- All Retreat routes tested successfully
-- All Community Listing routes tested successfully
-
-Browser Testing
-
-- Explorer page works
-- Details page works
-- Manage page works
-- Create works
-- Update works
-- Delete works
-- Search works
-
-Functionality Phase Completem ---done
------------- Day 6th ------
-Next Phase
-Frontend Design and Styling
-
-Remaining Tasks
-
-UI / Design
-
-- Navigation Bar
-- Bootstrap Cards
-- Hero Section
-- Responsive Layout
-- Real Borjomi images
-- Real Ureki images
-- Real Tskaltubo images
-- Real Abastumani images
-- Real Sairme images
-- CSS module organization
-
-Project Requirements Remaining
-
-- Generate 1000+ records using Mockaroo
-- README
-- Screenshots
-- Deployment
-- Narrated Demo Video
-- Run Prettier
-- Run ESLint
-- Final GitHub Push
-
-Future Improvements
-
-- User authentication
-- User accounts
-- Separate portal for Retreat Owners
-- Separate portal for Community Members
-- User-submitted reviews
-- Review moderation
-- User profile management
-
-=============================
-
-Remaining Work
-UI / Design
-High Priority
-Navigation Bar
-Bootstrap Cards
-Hero Section
-Responsive Layout
-Better spacing
-Better typography
-Images
-
-Need real images for:
-
-Borjomi
-Ureki
-Tskaltubo
-Abastumani
-Sairme
-
-Data
-Mockaroo
-
-Required:
-
-1000+ records
-
-=== README ====
-
-Author
-Class Link
-Project Objective
-Screenshot
-Instructions
-Deployment URL
-MIT License -- done
-
-== to be run ==
-npm run lint
-
-npx prettier . --write
+```bash
+npx eslint .
+```
