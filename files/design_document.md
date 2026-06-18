@@ -285,19 +285,20 @@ To satisfy this requirement:
 
 ## MongoDB Atlas Validation
 
-![1000 Records Validation](./images/seed_data_1000_0.png)
+![1000 Records Validation](../frontend/images/seedData_1000_records_2.png)
+
 
 ## Explorer Page Validation
 
-![1000 Records Validation](./images/seed_data_1000_1.png)
+![1000 Records Validation](../frontend/images/seed_data_1000_0.png)
 
 ## Additional Validation
 
-![1000 Records Validation](./images/seed_data_1000_2.png)
+![1000 Records Validation](../frontend/images/seedData_1000_records_3.png)
 
-![1000 Records Validation](./images/seed_data_1000_3.png)
+![1000 Records Validation](../frontend/images/seedData_1000_records_4.png)
 
-![1000 Records Validation](./images/seed_data_1000_4.png)
+![1000 Records Validation](../frontend/images/seedData_1000_records.png)
 
 ### Deployment Note
 
