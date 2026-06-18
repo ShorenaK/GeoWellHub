@@ -8,11 +8,11 @@ The application was designed with simplicity, usability, accessibility, and resp
 
 **The primary audience for this website includes:**
 
-- [ ] Wellness travelers
-- [ ] Health tourism visitors
-- [ ] Community contributors
-- [ ] Tourism researchers
-- [ ] Academic instructors and peers
+- Wellness travelers
+- Health tourism visitors
+- Community contributors
+- Tourism researchers
+- Academic instructors and peers
 
 **The website consists of four pages:**
 
@@ -20,47 +20,47 @@ The application was designed with simplicity, usability, accessibility, and resp
 
 The Home page contains:
 
-- [ ] Hero section
-- [ ] GeoWell Hub introduction
-- [ ] Featured Wellness Regions section
-- [ ] Navigation menu
-- [ ] Call-to-action buttons
-- [ ] Footer
+- Hero section
+- GeoWell Hub introduction
+- Featured Wellness Regions section
+- Navigation menu
+- Call-to-action buttons
+- Footer
 
 ### Explorer Page - explorer.html
 
 The Explorer page contains:
 
-- [ ] Search by wellness need
-- [ ] Official wellness retreat listings
-- [ ] Community wellness listings
-- [ ] Listing cards
-- [ ] Region information
-- [ ] Rating information
-- [ ] View Details button
+- Search by wellness need
+- Official wellness retreat listings
+- Community wellness listings
+- Listing cards
+- Region information
+- Rating information
+- View Details button
 
 ### Details Page - details.html
 
 The Details page contains:
 
-- [ ] Listing image
-- [ ] Listing information
-- [ ] Traditional benefits
-- [ ] Description
-- [ ] Wellness needs
-- [ ] Rating information
-- [ ] Back to Explorer button
+- Listing image
+- Listing information
+- Traditional benefits
+- Description
+- Wellness needs
+- Rating information
+- Back to Explorer button
 
 ### Manage Listings Page - manage.html
 
 The Manage Listings page contains:
 
-- [ ] Add new retreat form
-- [ ] Add community listing form
-- [ ] Existing listings section
-- [ ] Edit listing functionality
-- [ ] Delete listing functionality
-- [ ] Listing management controls
+- Add new retreat form
+- Add community listing form
+- Existing listings section
+- Edit listing functionality
+- Delete listing functionality
+- Listing management controls
 
 ---
 
@@ -110,6 +110,25 @@ The website uses a wellness-inspired visual design focused on readability, acces
 
 ---
 
+## Tools Used for Testing
+
+- Thunder Client
+- MongoDB Compass
+- Browser Developer Tools
+- MongoDB Native Driver
+- Express.js
+- Node.js
+
+--- 
+
+### API Testing
+
+All API routes were tested using Thunder Client before frontend integration.
+
+Testing the backend independently helped identify issues early and simplified frontend development.
+
+--- 
+
 ## Accessibility Considerations
 
 The website includes several accessibility features:
@@ -127,27 +146,62 @@ The website includes several accessibility features:
 
 Several challenges were encountered during development:
 
-- [ ] Creating a full-stack application
-- [ ] Designing MongoDB collections
-- [ ] Implementing CRUD functionality
-- [ ] Managing community and official listings
-- [ ] Creating reusable API modules
-- [ ] Implementing search functionality
-- [ ] Generating and testing 1000+ records
-- [ ] Balancing performance and deployment considerations
+- Implementing edit functionality without interfering with the Create Listing form.
+- Displaying community listings correctly on the Explorer and Manage Listings pages.
+- Creating support for Community Listing Details pages.
+- Managing two separate MongoDB collections while maintaining consistent CRUD functionality.
+- Testing and validating API routes before frontend integration.
+- Generating and validating a dataset containing more than 1000 records.
+
+### Edit Form Functionality
+
+Initially, the Edit button populated the Create Listing form, which could lead to duplicate records and a confusing user experience.
+
+To solve this issue, dedicated edit forms were added directly inside each listing card. This allowed users to edit a specific listing while keeping the Create Listing form focused on creating new records.
+
+### Community Listings Integration
+
+After replacing the Reviews feature with Community Listings, records were successfully stored in MongoDB but were not appearing on the Explorer or Manage Listings pages.
+
+Additional frontend rendering logic and API integration were implemented to correctly display, edit, and delete community listings.
+
+### Community Listing Details Route
+
+The Details page originally supported only Retreat records.
+
+When users selected a Community Listing, the application returned a "Cannot GET" error because a route for retrieving community listings by ID had not yet been implemented.
+
+To solve this issue:
+
+- Added a GET `/api/community-listings/:id` route.
+- Created a database function to retrieve a single community listing.
+- Updated the Details page to support both Retreats and Community Listings.
+
+### Managing Multiple Collections
+
+The application uses two MongoDB collections:
+
+- `retreats`
+- `communityListings`
+
+Maintaining consistent CRUD functionality across both collections required additional planning, testing, and frontend integration.
 
 ---
 
 ## Future Improvements
 
-- [ ] Pagination for large datasets
-- [ ] Advanced search filters
-- [ ] User authentication
-- [ ] Image uploads
-- [ ] AWS deployment
-- [ ] Favorites functionality
-- [ ] Search optimization
-- [ ] Additional wellness categories
+Several enhancements could be added in future versions of GeoWell Hub:
+
+- User authentication and account management
+- User reviews and destination ratings
+- Separate portals for community members and business owners
+- Dedicated listing submission dashboards
+- Direct image upload support
+- Advanced search and filtering options
+- Interactive map integration
+- Mobile application development
+- Wellness destination verification
+- Personalized wellness recommendations
 
 ---
 
@@ -223,11 +277,11 @@ The project requirement included generating and testing a dataset containing mor
 
 To satisfy this requirement:
 
-- [ ] Generated 1000 wellness destination records using Mockaroo
-- [ ] Exported records into MOCK_DATA.json
-- [ ] Created a separate seedLargeDataset.js script
-- [ ] Successfully inserted records into MongoDB Atlas
-- [ ] Verified application functionality using the large dataset
+- [x] Generated 1000 wellness destination records using Mockaroo
+- [x] Exported records into MOCK_DATA.json
+- [x] Created a separate seedLargeDataset.js script
+- [x] Successfully inserted records into MongoDB Atlas
+- [x] Verified application functionality using the large dataset
 
 ## MongoDB Atlas Validation
 
