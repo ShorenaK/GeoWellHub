@@ -69,6 +69,8 @@ Visitors can explore mineral water resorts, thermal spas, mountain wellness dest
 
 - MongoDB (Docker Container)
 
+-  MongoDB Atlas
+
 ### Development Tools
 
 - Visual Studio Code
