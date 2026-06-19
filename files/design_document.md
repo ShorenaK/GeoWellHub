@@ -149,9 +149,6 @@ Several challenges were encountered during development:
 - Implementing edit functionality without interfering with the Create Listing form.
 - Displaying community listings correctly on the Explorer and Manage Listings pages.
 - Creating support for Community Listing Details pages.
-- Managing two separate MongoDB collections while maintaining consistent CRUD functionality.
-- Testing and validating API routes before frontend integration.
-- Generating and validating a dataset containing more than 1000 records.
 
 ### Edit Form Functionality
 
@@ -176,15 +173,6 @@ To solve this issue:
 - Added a GET `/api/community-listings/:id` route.
 - Created a database function to retrieve a single community listing.
 - Updated the Details page to support both Retreats and Community Listings.
-
-### Managing Multiple Collections
-
-The application uses two MongoDB collections:
-
-- `retreats`
-- `communityListings`
-
-Maintaining consistent CRUD functionality across both collections required additional planning, testing, and frontend integration.
 
 ---
 

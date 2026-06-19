@@ -156,8 +156,6 @@ Some challenges encountered during development included:
 - Displaying community listings correctly on the Explorer page
 - Displaying community listings correctly on the Manage Listings page
 - Supporting Details pages for both Retreats and Community Listings
-- Managing multiple MongoDB collections
-- Generating and validating a dataset containing more than 1000 records
 
 ---
 
