@@ -287,7 +287,7 @@ To satisfy this requirement:
 
 ![1000 Records Validation](../frontend/images/seedData_1000_records_4.png)
 
-![1000 Records Validation](../frontend/images/seedData_1000_records.png)
+![1000 Records Validation](../frontend/images/SeedData_1000_records.png)
 
 ### Deployment Note
 
