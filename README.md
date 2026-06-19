@@ -21,7 +21,7 @@ Visitors can explore mineral water resorts, thermal spas, mountain wellness dest
 
 ### Website
 
-[GeoWell Hub](https://geowellhub.onrender.com/manage.html)
+[GeoWell Hub](https://geowellhub.onrender.com/)
 
 ### GitHub Repository
 
