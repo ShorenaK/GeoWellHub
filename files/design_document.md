@@ -109,8 +109,6 @@ The website uses a wellness-inspired visual design focused on readability, acces
 - Prettier
 - npm
 
----
-
 ### Deployment
 
 - Render
@@ -123,7 +121,17 @@ This application is deployed on Render and uses MongoDB Atlas as its cloud datab
 - MongoDB Atlas (Cloud Database)
 
 ---
+### Important Note
 
+This application is deployed using Render's free tier.
+
+Because free Render services automatically spin down after periods of inactivity, the application may take approximately 30–60 seconds to wake up when accessed for the first time.
+
+If the application does not load immediately, please wait a moment and refresh the page once the service becomes active.
+
+All functionality, including CRUD operations and database integration, will work normally after the application finishes waking up.
+
+---
 ## Tools Used for Testing
 
 - Thunder Client
