@@ -19,8 +19,6 @@
   Project: GeoWell Hub
 */
 
-/// ---------> talks directly to MongoDB.
-
 // Import the getDatabase helper from our MongoDB connection file
 import { ObjectId } from "mongodb";
 import { getDatabase } from "./mongo.js";
@@ -28,7 +26,7 @@ import { getDatabase } from "./mongo.js";
 // Name of the MongoDB collection we will use for retreat listings
 const COLLECTION_NAME = "retreats";
 
-// Get all retreat listings from the database--- might change this later will see this is for my routes this fucntion to be used for my routs
+// Get all retreat listings from the database
 export async function getRetreats() {
   try {
     // Get the connected database
@@ -49,7 +47,7 @@ export async function getRetreats() {
     throw error;
   }
 }
-// -----------> Get one retreat listing by its MongoDB _id deteilhnls page
+
 // Get one retreat listing by its MongoDB _id
 export async function getRetreatById(id) {
   try {
@@ -75,8 +73,6 @@ export async function getRetreatById(id) {
   }
 }
 
-///////----------> POST
-
 // Create a new retreat listing in the database
 export async function createRetreat(retreatData) {
   try {
@@ -100,7 +96,6 @@ export async function createRetreat(retreatData) {
   }
 }
 
-///////----------> Update
 // Update an existing retreat
 export async function updateRetreat(id, retreatData) {
   try {
@@ -128,8 +123,6 @@ export async function updateRetreat(id, retreatData) {
     throw error;
   }
 }
-
-///////----------> Delete
 
 // Delete an existing retreat by its MongoDB _id
 export async function deleteRetreat(id) {

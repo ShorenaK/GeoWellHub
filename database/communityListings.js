@@ -2,6 +2,8 @@
   database/communityListings.js
 
   This file handles MongoDB operations for community listings.
+  Talks directly to MongoDB for community listings.
+
 
   Responsibilities:
   - Get all community listings.
@@ -18,8 +20,6 @@
   Course: CS 5610 Web Development
   Project: GeoWell Hub
 */
-
-// This file talks directly to MongoDB for community listings.
 
 // Import ObjectId so we can find documents by MongoDB _id
 import { ObjectId } from "mongodb";
