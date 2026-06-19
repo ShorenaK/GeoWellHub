@@ -64,10 +64,10 @@ Visitors can explore mineral water resorts, thermal spas, mountain wellness dest
 
 - Node.js
 - Express.js
+- MongoDB Native Driver
+- MongoDB (Docker Container)
 
 ### Database
-
-- MongoDB (Docker Container)
 
 - MongoDB Atlas
 
@@ -82,6 +82,17 @@ Visitors can explore mineral water resorts, thermal spas, mountain wellness dest
 - ESLint
 - Prettier
 - npm
+
+### Deployment
+
+- Render
+
+This application is deployed on Render and uses MongoDB Atlas as its cloud database.
+
+### Hosting Platform
+
+- Render (Application Hosting)
+- MongoDB Atlas (Cloud Database)
 
 ---
 
