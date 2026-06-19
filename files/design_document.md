@@ -99,7 +99,6 @@ The website uses a wellness-inspired visual design focused on readability, acces
 
 ### Development Tools
 
-
 - MongoDB Compass
 - Docker
 - Visual Studio Code
@@ -120,7 +119,7 @@ The website uses a wellness-inspired visual design focused on readability, acces
 - Express.js
 - Node.js
 
---- 
+---
 
 ### API Testing
 
@@ -128,7 +127,7 @@ All API routes were tested using Thunder Client before frontend integration.
 
 Testing the backend independently helped identify issues early and simplified frontend development.
 
---- 
+---
 
 ## Accessibility Considerations
 
@@ -244,7 +243,7 @@ The website layout was planned using wireframe sketches before development.
 
 ![Final Wireframe](../frontend/images/figmaFile_new.png)
 
-## Original Wireframe Version 
+## Original Wireframe Version
 
 ![Wireframe 1](../frontend/images/figmaFile_2_drawing.png)
 
@@ -276,7 +275,6 @@ To satisfy this requirement:
 
 ![1000 Records Validation](../frontend/images/seedData_1000_records_2.png)
 
-
 ## Explorer Page Validation
 
 ![1000 Records Validation](../frontend/images/seed_data_1000_0.png)
@@ -298,6 +296,7 @@ During testing, rendering all 1000+ records simultaneously negatively impacted a
 ---
 
 # ESLint Validation
+
 Commands used:
 
 npx eslint .
