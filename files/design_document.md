@@ -91,10 +91,11 @@ The website uses a wellness-inspired visual design focused on readability, acces
 
 - Node.js
 - Express.js
+- MongoDB Native Driver
+- MongoDB (Docker Container)
 
 ### Database
 
-- MongoDB (Docker Container)
 - MongoDB Atlas
 
 ### Development Tools
@@ -107,6 +108,19 @@ The website uses a wellness-inspired visual design focused on readability, acces
 - ESLint
 - Prettier
 - npm
+
+---
+
+### Deployment
+
+- Render
+
+This application is deployed on Render and uses MongoDB Atlas as its cloud database.
+
+### Hosting Platform
+
+- Render (Application Hosting)
+- MongoDB Atlas (Cloud Database)
 
 ---
 
