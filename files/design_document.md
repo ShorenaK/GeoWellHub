@@ -95,6 +95,7 @@ The website uses a wellness-inspired visual design focused on readability, acces
 ### Database
 
 - MongoDB (Docker Container)
+- MongoDB Atlas
 
 ### Development Tools
 
