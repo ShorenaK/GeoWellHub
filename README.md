@@ -127,12 +127,85 @@ For deployment, a smaller production dataset was used to provide a better user e
 
 ---
 
-## Validation & Code Quality
+## Tools Used for Testing
 
-The project was validated using ESLint and formatted using Prettier.
+- Thunder Client
+- MongoDB Compass
+- Browser Developer Tools
+- MongoDB Native Driver
+- Express.js
+- Node.js
 
-### ESLint
+---
 
-```bash
-npx eslint .
-```
+## Use of Generative AI
+
+### AI Tool Used
+
+- ChatGPT (OpenAI GPT-5.5)
+
+ChatGPT was used as an educational and learning resource throughout the development process.
+
+---
+
+## Challenges Encountered
+
+Some challenges encountered during development included:
+
+- Implementing edit functionality without interfering with the Create Listing form
+- Displaying community listings correctly on the Explorer page
+- Displaying community listings correctly on the Manage Listings page
+- Supporting Details pages for both Retreats and Community Listings
+- Managing multiple MongoDB collections
+- Generating and validating a dataset containing more than 1000 records
+
+---
+
+## Future Improvements
+
+- User authentication and account management
+- User reviews and destination ratings
+- Image upload functionality
+- Advanced search and filtering
+- Interactive map integration
+- Mobile application development
+- Wellness destination verification
+- Personalized wellness recommendations
+
+---
+
+## Project Highlights
+
+Some features and accomplishments that I am particularly proud of include:
+
+- Building a full-stack wellness tourism application
+- Implementing complete CRUD functionality
+- Supporting both official and community wellness listings
+- Creating a responsive and accessible user interface
+- Successfully integrating MongoDB with Node.js and Express
+- Generating and validating a dataset containing more than 1000 records
+- Creating a clean and user-friendly design inspired by wellness tourism
+
+The final application provides a centralized platform for discovering wellness destinations throughout Georgia while demonstrating full-stack web development concepts and database integration.
+
+### Developed By **Shorena K. Anzhilov**
+
+### GitHub [ShorenaK](https://github.com/ShorenaK)
+
+### LinkedIn [Shorena K. Anzhilov](https://www.linkedin.com/in/shorenaanzhilov/)
+
+---
+
+## Contact
+
+If you have any questions or feedback, please feel free to contact me:
+
+[Email Me](mailto:shorenaanzhilov@gmail.com)
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
