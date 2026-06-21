@@ -68,13 +68,13 @@ The Manage Listings page contains:
 
 The website uses a wellness-inspired visual design focused on readability, accessibility, and usability.
 
-- [ ] Responsive layout using Bootstrap 5
-- [ ] Consistent navigation structure
-- [ ] Green wellness-inspired color palette
-- [ ] Gold accent color for important actions
-- [ ] Card-based content presentation
-- [ ] Responsive mobile-friendly design
-- [ ] Consistent section styling across all pages
+- [x] Responsive layout using Bootstrap 5
+- [x] Consistent navigation structure
+- [x] Green wellness-inspired color palette
+- [x] Gold accent color for important actions
+- [x] Card-based content presentation
+- [x] Responsive mobile-friendly design
+- [x] Consistent section styling across all pages
 
 ---
 
@@ -319,13 +319,13 @@ To satisfy this requirement:
 
 ![1000 Records Validation](../frontend/images/seedData_1000_records_3.png)
 
-![1000 Records Validation](../frontend/images/SeedData_1000_records_2.png)
-
-![1000 Records Validation](../frontend/images/seedData_1000_records_4.png)
+![1000 Records Validation](../frontend/images/seed_data_1000_0.png)
 
 ## Explorer Page Validation
 
-![1000 Records Validation](../frontend/images/seed_data_1000_0.png)
+![1000 Records Validation](../frontend/images/SeedData_1000_records_2.png)
+
+![1000 Records Validation](../frontend/images/seedData_1000_records_4.png)
 
 ## Additional Validation
 
