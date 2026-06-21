@@ -155,12 +155,12 @@ Testing the backend independently helped identify issues early and simplified fr
 
 The website includes several accessibility features:
 
-- [ ] Semantic HTML elements
-- [ ] Descriptive image alt text
-- [ ] Clear heading hierarchy
-- [ ] Readable color contrast
-- [ ] Responsive layouts
-- [ ] Accessible navigation
+- [x] Semantic HTML elements
+- [x] Descriptive image alt text
+- [x] Clear heading hierarchy
+- [x] Readable color contrast
+- [x] Responsive layouts
+- [x] Accessible navigation
 
 ---
 
@@ -281,42 +281,6 @@ Code formatting was standardized using Prettier to maintain consistency througho
 
 ---
 
-# Large Dataset Requirement (1000+ Records)
-
-The project requirement included generating and testing a dataset containing more than 1000 records.
-
-To satisfy this requirement:
-
-- [x] Generated 1000 wellness destination records using Mockaroo
-- [x] Exported records into MOCK_DATA.json
-- [x] Created a separate seedLargeDataset.js script
-- [x] Successfully inserted records into MongoDB Atlas
-- [x] Verified application functionality using the large dataset
-
-## MongoDB Atlas Validation
-
-![1000 Records Validation](../frontend/images/seedData_1000_records_2.png)
-
-## Explorer Page Validation
-
-![1000 Records Validation](../frontend/images/seed_data_1000_0.png)
-
-## Additional Validation
-
-![1000 Records Validation](../frontend/images/seedData_1000_records_3.png)
-
-![1000 Records Validation](../frontend/images/seedData_1000_records_4.png)
-
-![1000 Records Validation](../frontend/images/SeedData_1000_records.png)
-
-### Deployment Note
-
-The large dataset was retained for testing and validation purposes.
-
-During testing, rendering all 1000+ records simultaneously negatively impacted application performance and user experience. For deployment, a smaller production dataset was used while retaining the large dataset generation files and validation screenshots within the repository.
-
----
-
 # ESLint Validation
 
 Commands used:
@@ -337,3 +301,40 @@ npx prettier --check .
 ```
 
 ![Prettier Validation](../frontend/images/prettier.png)
+
+
+# Large Dataset Requirement (1000+ Records)
+
+The project requirement included generating and testing a dataset containing more than 1000 records.
+
+To satisfy this requirement:
+
+- [x] Generated 1000 wellness destination records using Mockaroo
+- [x] Exported records into MOCK_DATA.json
+- [x] Created a separate seedLargeDataset.js script
+- [x] Successfully inserted records into MongoDB Atlas
+- [x] Verified application functionality using the large dataset
+
+## MongoDB Atlas Validation
+
+![1000 Records Validation](../frontend/images/SeedData_1000_records_2.png)
+
+## Explorer Page Validation
+
+![1000 Records Validation](../frontend/images/seed_data_1000_0.png)
+
+## Additional Validation
+
+![1000 Records Validation](../frontend/images/seedData_1000_records_3.png)
+
+![1000 Records Validation](../frontend/images/seedData_1000_records_4.png)
+
+![1000 Records Validation](../frontend/images/SeedData_1000_records.png)
+
+### Deployment Note
+
+The large dataset was retained for testing and validation purposes.
+
+During testing, rendering all 1000+ records simultaneously negatively impacted application performance and user experience. For deployment, a smaller production dataset was used while retaining the large dataset generation files and validation screenshots within the repository.
+
+---
