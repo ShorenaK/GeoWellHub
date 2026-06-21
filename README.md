@@ -2,9 +2,19 @@
 
 ## Project Description
 
-GeoWell Hub is a full-stack wellness tourism web application designed to help users discover wellness destinations throughout Georgia.
+GeoWell Hub is a full-stack wellness tourism web application designed to help users discover wellness destinations throughout the Republic of Georgia.
 
-The platform allows users to browse official wellness retreats and community-submitted wellness locations, search destinations by wellness needs, view detailed destination information, and manage listings through a complete CRUD interface.
+The inspiration for GeoWell Hub comes from my birth country republic of Georgia which is renowned for its mineral water resorts, thermal springs, mountain retreats, and rich health tourism traditions. I created this platform to provide travelers and wellness enthusiasts with a centralized resource for exploring wellness destinations and learning about their potential health and wellness benefits.
+
+The platform enables users to:
+
+- Discover official wellness resorts and retreats across Georgia.
+- Explore community-submitted wellness and health-focused locations.
+- Search destinations based on specific wellness and vitality needs.
+- View detailed information about each destination, including amenities, wellness offerings, and location details.
+- Manage destination listings through a complete Create, Read, Update, and Delete (CRUD) interface.
+
+GeoWell Hub combines tourism, wellness, and community engagement into a single platform, making it easier for users to find destinations that support relaxation, recovery, and overall well-being while promoting Georgia's unique wellness tourism opportunities.
 
 The website consists of four pages:
 

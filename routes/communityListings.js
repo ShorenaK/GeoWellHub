@@ -34,6 +34,7 @@ import {
   updateCommunityListing,
   deleteCommunityListing,
 } from "../database/communityListings.js";
+
 // Create an Express router
 const router = express.Router();
 
