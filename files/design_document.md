@@ -338,3 +338,5 @@ The large dataset was retained for testing and validation purposes.
 During testing, rendering all 1000+ records simultaneously negatively impacted application performance and user experience. For deployment, a smaller production dataset was used while retaining the large dataset generation files and validation screenshots within the repository.
 
 ---
+
+Thank you! 
