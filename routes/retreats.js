@@ -36,13 +36,9 @@ import {
 } from "../database/retreats.js";
 
 // Create an Express router
-// A router lets us keep routes separate from backend.js
 const router = express.Router();
 
-// ------------------------- //
-
-// Define a route for GET requests to /api/retreats
-// This route returns all retreat listings from MongoDB
+// This route returns all retreat listings from MongoDB ->  GET requests to /api/retreats
 router.get("/", async (req, res) => {
   try {
     // Ask the database file for all retreat listings
@@ -53,10 +49,8 @@ router.get("/", async (req, res) => {
       retreats,
     });
   } catch (error) {
-    // Log the error in the terminal for debugging
     console.error("Error fetching retreats:", error);
 
-    // Send a safe error response to the frontend
     res.status(500).json({
       error: "Internal Server Error",
       retreats: [],
@@ -64,24 +58,19 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET /api/retreats/:id
-// Return one retreat by its MongoDB _id
+// Return one retreat by its MongoDB _id --> GET /api/retreats/:id
 router.get("/:id", async (req, res) => {
   try {
-    // Get the id from the URL
     const { id } = req.params;
 
-    // Ask the database for one retreat
     const retreat = await getRetreatById(id);
 
-    // If retreat does not exist, return 404
     if (!retreat) {
       return res.status(404).json({
         error: "Retreat not found",
       });
     }
 
-    // Send retreat back to frontend
     return res.json({
       retreat,
     });
@@ -94,8 +83,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// POST /api/retreats
-// Create a new retreat listing
+// Create a new retreat listing --> POST /api/retreats
 router.post("/", async (req, res) => {
   try {
     // Get the retreat data sent from the frontend
@@ -104,24 +92,20 @@ router.post("/", async (req, res) => {
     // Insert the retreat into MongoDB
     const result = await createRetreat(retreatData);
 
-    // Send success response back to the browser
     res.status(201).json({
       message: "Retreat created successfully",
       insertedId: result.insertedId,
     });
   } catch (error) {
-    // Log the error for debugging
     console.error("Error creating retreat:", error);
 
-    // Send safe error response
     res.status(500).json({
       error: "Internal Server Error",
     });
   }
 });
 
-// PUT /api/retreats/:id
-// Update an existing retreat by its MongoDB _id
+// Update an existing retreat by its MongoDB _id --> PUT /api/retreats/:id
 router.put("/:id", async (req, res) => {
   try {
     // Get the id from the URL
@@ -140,24 +124,20 @@ router.put("/:id", async (req, res) => {
       });
     }
 
-    // Send success response
     return res.json({
       message: "Retreat updated successfully",
       modifiedCount: result.modifiedCount,
     });
   } catch (error) {
-    // Log the error for debugging
     console.error("Error updating retreat:", error);
 
-    // Send safe error response
     return res.status(500).json({
       error: "Internal Server Error",
     });
   }
 });
 
-// DELETE -->  /api/retreats/:id
-// Delete an existing retreat by its MongoDB _id
+// Delete an existing retreat by its MongoDB _id --> DELETE /api/retreats/:id
 router.delete("/:id", async (req, res) => {
   try {
     // Get the id from the URL
@@ -172,17 +152,13 @@ router.delete("/:id", async (req, res) => {
         error: "Retreat not found",
       });
     }
-
-    // Send success response
     return res.json({
       message: "Retreat deleted successfully",
       deletedCount: result.deletedCount,
     });
   } catch (error) {
-    // Log the error for debugging
     console.error("Error deleting retreat:", error);
 
-    // Send safe error response
     return res.status(500).json({
       error: "Internal Server Error",
     });
