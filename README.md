@@ -173,16 +173,6 @@ For deployment, a smaller production dataset was used to provide a better user e
 
 ---
 
-## Use of Generative AI
-
-### AI Tool Used
-
-- ChatGPT (OpenAI GPT-5.5)
-
-ChatGPT was used as an educational and learning resource throughout the development process.
-
----
-
 ## Challenges Encountered
 
 Some challenges encountered during development included:
