@@ -1,5 +1,10 @@
 # GeoWell Hub
 
+Code Review by Melissa:
+
+Hi Shorena! I absolutely love the site, it's very creative and well-designed. It makes sense to have a hub where people who are from Georgia or looking to visit can explore various wellness sites. Your listings on the explorer pages are super clean. I love that you can create a listing, it adds a community aspect to the page. It is interesting that you can edit existing community listings. This is a great use of CRUD for the project, but if you are interested in pursuing this project further, it would be good to have safeguards there. Overall, great job on your project, it looks amazing!
+
+
 ## Project Description
 
 GeoWell Hub is a full-stack wellness tourism web application designed to help users discover wellness destinations throughout the Republic of Georgia.
