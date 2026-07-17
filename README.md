@@ -37,6 +37,10 @@ Visitors can explore mineral water resorts, thermal spas, mountain wellness dest
 
 [GitHub Repository](https://github.com/ShorenaK/GeoWellHub)
 
+### Presentation Deck
+
+[Presentation Slides]([https://github.com/ShorenaK/GeoWellHub](https://docs.google.com/presentation/d/1Q8tTILVdC-Fh7TXnOCSoZfa-My0H0MSRdMGZaqvzRyk/edit?usp=sharing))
+
 ---
 
 ## Website Preview
